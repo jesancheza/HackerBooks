@@ -29,6 +29,7 @@
 		EDB4D19D1AD9329200194F06 /* JESAPdf.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1941AD9329200194F06 /* JESAPdf.m */; };
 		EDB4D19E1AD9329200194F06 /* JESAPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1961AD9329200194F06 /* JESAPhoto.m */; };
 		EDB4D19F1AD9329200194F06 /* JESATag.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1981AD9329200194F06 /* JESATag.m */; };
+		EDB4D1A31AD9370500194F06 /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1A21AD9370500194F06 /* AGTCoreDataTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,8 @@
 		EDB4D1961AD9329200194F06 /* JESAPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESAPhoto.m; sourceTree = "<group>"; };
 		EDB4D1971AD9329200194F06 /* JESATag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESATag.h; sourceTree = "<group>"; };
 		EDB4D1981AD9329200194F06 /* JESATag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESATag.m; sourceTree = "<group>"; };
+		EDB4D1A11AD9370500194F06 /* AGTCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataTableViewController.h; sourceTree = "<group>"; };
+		EDB4D1A21AD9370500194F06 /* AGTCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				EDB4D16B1AD9302800194F06 /* Models */,
+				EDB4D1A01AD936D700194F06 /* Controllers */,
 				EDB4D14F1AD9300F00194F06 /* AppDelegate.h */,
 				EDB4D1501AD9300F00194F06 /* AppDelegate.m */,
 				EDB4D1521AD9300F00194F06 /* Images.xcassets */,
@@ -208,6 +212,15 @@
 				EDB4D1831AD9327B00194F06 /* _JESATag.m */,
 			);
 			name = Machines;
+			sourceTree = "<group>";
+		};
+		EDB4D1A01AD936D700194F06 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EDB4D1A11AD9370500194F06 /* AGTCoreDataTableViewController.h */,
+				EDB4D1A21AD9370500194F06 /* AGTCoreDataTableViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +328,7 @@
 				EDB4D18A1AD9327B00194F06 /* _JESATag.m in Sources */,
 				EDB4D1861AD9327B00194F06 /* _JESABookTag.m in Sources */,
 				EDB4D19A1AD9329200194F06 /* JESABook.m in Sources */,
+				EDB4D1A31AD9370500194F06 /* AGTCoreDataTableViewController.m in Sources */,
 				EDB4D1881AD9327B00194F06 /* _JESAPdf.m in Sources */,
 				EDB4D1871AD9327B00194F06 /* _JESALocalization.m in Sources */,
 				EDB4D19D1AD9329200194F06 /* JESAPdf.m in Sources */,
