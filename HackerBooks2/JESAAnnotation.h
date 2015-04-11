@@ -1,5 +1,10 @@
 #import "_JESAAnnotation.h"
 
+@import UIKit;
+
 @interface JESAAnnotation : _JESAAnnotation {}
-// Custom logic goes here.
+
+
+@property(nonatomic, strong) UIImage *image;
+
 @end
