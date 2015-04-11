@@ -14,6 +14,7 @@
 		EDB4D1621AD9301100194F06 /* HackerBooks2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1611AD9301100194F06 /* HackerBooks2Tests.m */; };
 		EDB4D16E1AD9305F00194F06 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D16C1AD9305F00194F06 /* Model.xcdatamodeld */; };
 		EDB4D1711AD930B800194F06 /* AGTCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1701AD930B800194F06 /* AGTCoreDataStack.m */; };
+		EDB4D1741AD931A200194F06 /* JESAModelBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1731AD931A200194F06 /* JESAModelBaseClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		EDB4D16D1AD9305F00194F06 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		EDB4D16F1AD930B800194F06 /* AGTCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataStack.h; sourceTree = "<group>"; };
 		EDB4D1701AD930B800194F06 /* AGTCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataStack.m; sourceTree = "<group>"; };
+		EDB4D1721AD931A200194F06 /* JESAModelBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESAModelBaseClass.h; sourceTree = "<group>"; };
+		EDB4D1731AD931A200194F06 /* JESAModelBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESAModelBaseClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				EDB4D16F1AD930B800194F06 /* AGTCoreDataStack.h */,
+				EDB4D1721AD931A200194F06 /* JESAModelBaseClass.h */,
+				EDB4D1731AD931A200194F06 /* JESAModelBaseClass.m */,
 				EDB4D1701AD930B800194F06 /* AGTCoreDataStack.m */,
 				EDB4D16C1AD9305F00194F06 /* Model.xcdatamodeld */,
 			);
@@ -227,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDB4D1511AD9300F00194F06 /* AppDelegate.m in Sources */,
+				EDB4D1741AD931A200194F06 /* JESAModelBaseClass.m in Sources */,
 				EDB4D14E1AD9300F00194F06 /* main.m in Sources */,
 				EDB4D1711AD930B800194F06 /* AGTCoreDataStack.m in Sources */,
 				EDB4D16E1AD9305F00194F06 /* Model.xcdatamodeld in Sources */,
