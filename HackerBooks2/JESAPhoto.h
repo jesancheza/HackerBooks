@@ -1,5 +1,8 @@
 #import "_JESAPhoto.h"
+@import UIKit;
 
 @interface JESAPhoto : _JESAPhoto {}
-// Custom logic goes here.
+
+@property(nonatomic, strong) UIImage *image;
+
 @end
