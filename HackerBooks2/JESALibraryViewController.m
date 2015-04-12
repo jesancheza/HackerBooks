@@ -53,4 +53,9 @@
     
 }
 
+#pragma mark - TableView Delegate
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [JESABookCellView cellHeight];
+}
+
 @end

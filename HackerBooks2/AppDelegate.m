@@ -14,6 +14,7 @@
 #import "JESALibraryViewController.h"
 #import "JESASandboxAndUserDefaultUtils.h"
 #import "Settings.h"
+#import "JESABookViewController.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) AGTCoreDataStack *stack;
@@ -53,13 +54,22 @@
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
     
-    // Creamos el controlador
+    // Creamos los controladores en sus navigation controller
     JESALibraryViewController *lVC = [[JESALibraryViewController alloc] initWithFetchedResultsController:fc
                                                                                                    style:UITableViewStylePlain];
     
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lVC];
+    UINavigationController *lNav = [[UINavigationController alloc] initWithRootViewController:lVC];
     
-    self.window.rootViewController = nav;
+    JESABookViewController *bVC = [[JESABookViewController alloc]
+                                   initWithModel:[fc objectAtIndexPath:[NSIndexPath indexPathForRow:0
+                                                                                          inSection:0]]];
+    UINavigationController *bNav = [[UINavigationController alloc] initWithRootViewController:bVC];
+    
+    // Creamos un combinador
+    UISplitViewController *spltVC = [[UISplitViewController alloc] init];
+    spltVC.viewControllers = @[lNav, bNav];
+    
+    self.window.rootViewController = spltVC;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
