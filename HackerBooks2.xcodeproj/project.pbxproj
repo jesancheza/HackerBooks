@@ -29,6 +29,7 @@
 		EDB4D19F1AD9329200194F06 /* JESATag.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1981AD9329200194F06 /* JESATag.m */; };
 		EDB4D1A31AD9370500194F06 /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1A21AD9370500194F06 /* AGTCoreDataTableViewController.m */; };
 		EDB4D1A61ADB19DF00194F06 /* JESALibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1A51ADB19DF00194F06 /* JESALibraryViewController.m */; };
+		EDB4D1A91ADB246100194F06 /* JESASandboxAndUserDefaultUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1A81ADB246100194F06 /* JESASandboxAndUserDefaultUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,9 @@
 		EDB4D1A21AD9370500194F06 /* AGTCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataTableViewController.m; sourceTree = "<group>"; };
 		EDB4D1A41ADB19DF00194F06 /* JESALibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESALibraryViewController.h; sourceTree = "<group>"; };
 		EDB4D1A51ADB19DF00194F06 /* JESALibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESALibraryViewController.m; sourceTree = "<group>"; };
+		EDB4D1A71ADB246100194F06 /* JESASandboxAndUserDefaultUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESASandboxAndUserDefaultUtils.h; sourceTree = "<group>"; };
+		EDB4D1A81ADB246100194F06 /* JESASandboxAndUserDefaultUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESASandboxAndUserDefaultUtils.m; sourceTree = "<group>"; };
+		EDB4D1AB1ADB24BB00194F06 /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,7 @@
 		EDB4D14A1AD9300F00194F06 /* HackerBooks2 */ = {
 			isa = PBXGroup;
 			children = (
+				EDB4D1AA1ADB246800194F06 /* Utils */,
 				EDB4D16B1AD9302800194F06 /* Models */,
 				EDB4D1A01AD936D700194F06 /* Controllers */,
 				EDB4D14F1AD9300F00194F06 /* AppDelegate.h */,
@@ -133,6 +138,7 @@
 				EDB4D1521AD9300F00194F06 /* Images.xcassets */,
 				EDB4D1541AD9300F00194F06 /* LaunchScreen.xib */,
 				EDB4D14B1AD9300F00194F06 /* Supporting Files */,
+				EDB4D1AB1ADB24BB00194F06 /* Settings.h */,
 			);
 			path = HackerBooks2;
 			sourceTree = "<group>";
@@ -216,6 +222,15 @@
 				EDB4D1A51ADB19DF00194F06 /* JESALibraryViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		EDB4D1AA1ADB246800194F06 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EDB4D1A71ADB246100194F06 /* JESASandboxAndUserDefaultUtils.h */,
+				EDB4D1A81ADB246100194F06 /* JESASandboxAndUserDefaultUtils.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,6 +350,7 @@
 				EDB4D16E1AD9305F00194F06 /* Model.xcdatamodeld in Sources */,
 				EDB4D1841AD9327B00194F06 /* _JESAAnnotation.m in Sources */,
 				EDB4D19F1AD9329200194F06 /* JESATag.m in Sources */,
+				EDB4D1A91ADB246100194F06 /* JESASandboxAndUserDefaultUtils.m in Sources */,
 				EDB4D1851AD9327B00194F06 /* _JESABook.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

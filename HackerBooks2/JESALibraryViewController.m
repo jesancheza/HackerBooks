@@ -32,7 +32,7 @@
     // Configurarla (sincronizar libreta y celda)
     cell.textLabel.text = b.title;
     cell.detailTextLabel.text = b.authors;
-    //cell.imageView.image =
+    cell.imageView.image = b.image;
     
     // Devolverla
     return cell;

@@ -1,6 +1,9 @@
 #import "_JESABook.h"
+@import UIKit;
 
 @interface JESABook : _JESABook {}
+
+@property(nonatomic, strong) UIImage *image;
 
 // Métodos de clase
 +(instancetype) bookWithTitle:(NSString *) title

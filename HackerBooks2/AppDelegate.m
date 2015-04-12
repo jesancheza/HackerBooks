@@ -12,6 +12,8 @@
 #import "JESAPdf.h"
 #import "JESATag.h"
 #import "JESALibraryViewController.h"
+#import "JESASandboxAndUserDefaultUtils.h"
+#import "Settings.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) AGTCoreDataStack *stack;
@@ -27,8 +29,15 @@
     // Creamos una instancia de stack
     self.stack = [AGTCoreDataStack coreDataStackWithModelName:@"Model"];
     
-    // Descargamos datos
-    [self downloadData];
+    // Comprobamos si es la primera vez que se carga al app
+    JESASandboxAndUserDefaultUtils *utilsSandbox = [JESASandboxAndUserDefaultUtils new];
+    
+    if (![utilsSandbox isUserDefaultName:FIRST_TIME]) {
+        
+        [utilsSandbox saveInUserDefaultName:FIRST_TIME value:@"1"];
+        
+        [self downloadData];
+    }
     
     // Un fetchRequest
     NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[JESABook entityName]];
