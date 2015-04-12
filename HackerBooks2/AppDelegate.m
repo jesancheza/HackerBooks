@@ -11,6 +11,7 @@
 #import "AGTCoreDataStack.h"
 #import "JESAPdf.h"
 #import "JESATag.h"
+#import "JESALibraryViewController.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) AGTCoreDataStack *stack;
@@ -28,6 +29,28 @@
     
     // Descargamos datos
     [self downloadData];
+    
+    // Un fetchRequest
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[JESABook entityName]];
+    req.sortDescriptors = @[[NSSortDescriptor
+                             sortDescriptorWithKey:JESABookAttributes.title
+                             ascending:YES
+                             selector:@selector(caseInsensitiveCompare:)]];
+    req.fetchBatchSize = 20;
+    
+    // FetchedResultsController
+    NSFetchedResultsController *fc = [[NSFetchedResultsController alloc]initWithFetchRequest:req
+                                                                        managedObjectContext:self.stack.context
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+    
+    // Creamos el controlador
+    JESALibraryViewController *lVC = [[JESALibraryViewController alloc] initWithFetchedResultsController:fc
+                                                                                                   style:UITableViewStylePlain];
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lVC];
+    
+    self.window.rootViewController = nav;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

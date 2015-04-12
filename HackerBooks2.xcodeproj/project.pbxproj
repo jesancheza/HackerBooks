@@ -28,6 +28,7 @@
 		EDB4D19E1AD9329200194F06 /* JESAPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1961AD9329200194F06 /* JESAPhoto.m */; };
 		EDB4D19F1AD9329200194F06 /* JESATag.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1981AD9329200194F06 /* JESATag.m */; };
 		EDB4D1A31AD9370500194F06 /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1A21AD9370500194F06 /* AGTCoreDataTableViewController.m */; };
+		EDB4D1A61ADB19DF00194F06 /* JESALibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1A51ADB19DF00194F06 /* JESALibraryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		EDB4D1981AD9329200194F06 /* JESATag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESATag.m; sourceTree = "<group>"; };
 		EDB4D1A11AD9370500194F06 /* AGTCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataTableViewController.h; sourceTree = "<group>"; };
 		EDB4D1A21AD9370500194F06 /* AGTCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataTableViewController.m; sourceTree = "<group>"; };
+		EDB4D1A41ADB19DF00194F06 /* JESALibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESALibraryViewController.h; sourceTree = "<group>"; };
+		EDB4D1A51ADB19DF00194F06 /* JESALibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESALibraryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +212,8 @@
 			children = (
 				EDB4D1A11AD9370500194F06 /* AGTCoreDataTableViewController.h */,
 				EDB4D1A21AD9370500194F06 /* AGTCoreDataTableViewController.m */,
+				EDB4D1A41ADB19DF00194F06 /* JESALibraryViewController.h */,
+				EDB4D1A51ADB19DF00194F06 /* JESALibraryViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDB4D1511AD9300F00194F06 /* AppDelegate.m in Sources */,
+				EDB4D1A61ADB19DF00194F06 /* JESALibraryViewController.m in Sources */,
 				EDB4D1741AD931A200194F06 /* JESAModelBaseClass.m in Sources */,
 				EDB4D1891AD9327B00194F06 /* _JESAPhoto.m in Sources */,
 				EDB4D18A1AD9327B00194F06 /* _JESATag.m in Sources */,
