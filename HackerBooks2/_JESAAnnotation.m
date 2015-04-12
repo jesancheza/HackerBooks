@@ -6,13 +6,13 @@
 const struct JESAAnnotationAttributes JESAAnnotationAttributes = {
 	.creationDate = @"creationDate",
 	.modificationDate = @"modificationDate",
-	.photoData = @"photoData",
 	.text = @"text",
 };
 
 const struct JESAAnnotationRelationships JESAAnnotationRelationships = {
 	.book = @"book",
 	.localization = @"localization",
+	.photo = @"photo",
 };
 
 @implementation JESAAnnotationID
@@ -48,13 +48,13 @@ const struct JESAAnnotationRelationships JESAAnnotationRelationships = {
 
 @dynamic modificationDate;
 
-@dynamic photoData;
-
 @dynamic text;
 
 @dynamic book;
 
 @dynamic localization;
+
+@dynamic photo;
 
 @end
 

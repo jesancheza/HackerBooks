@@ -7,20 +7,19 @@
 extern const struct JESABookAttributes {
 	__unsafe_unretained NSString *authors;
 	__unsafe_unretained NSString *isFavorite;
+	__unsafe_unretained NSString *photoData;
 	__unsafe_unretained NSString *title;
 } JESABookAttributes;
 
 extern const struct JESABookRelationships {
 	__unsafe_unretained NSString *annotation;
-	__unsafe_unretained NSString *booktag;
 	__unsafe_unretained NSString *pdf;
-	__unsafe_unretained NSString *photo;
+	__unsafe_unretained NSString *tag;
 } JESABookRelationships;
 
 @class JESAAnnotation;
-@class JESABookTag;
 @class JESAPdf;
-@class JESAPhoto;
+@class JESATag;
 
 @interface JESABookID : NSManagedObjectID {}
 @end
@@ -43,6 +42,10 @@ extern const struct JESABookRelationships {
 
 //- (BOOL)validateIsFavorite:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSData* photoData;
+
+//- (BOOL)validatePhotoData:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) NSString* title;
 
 //- (BOOL)validateTitle:(id*)value_ error:(NSError**)error_;
@@ -51,17 +54,13 @@ extern const struct JESABookRelationships {
 
 - (NSMutableSet*)annotationSet;
 
-@property (nonatomic, strong) NSSet *booktag;
-
-- (NSMutableSet*)booktagSet;
-
 @property (nonatomic, strong) JESAPdf *pdf;
 
 //- (BOOL)validatePdf:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) JESAPhoto *photo;
+@property (nonatomic, strong) NSSet *tag;
 
-//- (BOOL)validatePhoto:(id*)value_ error:(NSError**)error_;
+- (NSMutableSet*)tagSet;
 
 @end
 
@@ -73,11 +72,11 @@ extern const struct JESABookRelationships {
 
 @end
 
-@interface _JESABook (BooktagCoreDataGeneratedAccessors)
-- (void)addBooktag:(NSSet*)value_;
-- (void)removeBooktag:(NSSet*)value_;
-- (void)addBooktagObject:(JESABookTag*)value_;
-- (void)removeBooktagObject:(JESABookTag*)value_;
+@interface _JESABook (TagCoreDataGeneratedAccessors)
+- (void)addTag:(NSSet*)value_;
+- (void)removeTag:(NSSet*)value_;
+- (void)addTagObject:(JESATag*)value_;
+- (void)removeTagObject:(JESATag*)value_;
 
 @end
 
@@ -92,19 +91,19 @@ extern const struct JESABookRelationships {
 - (BOOL)primitiveIsFavoriteValue;
 - (void)setPrimitiveIsFavoriteValue:(BOOL)value_;
 
+- (NSData*)primitivePhotoData;
+- (void)setPrimitivePhotoData:(NSData*)value;
+
 - (NSString*)primitiveTitle;
 - (void)setPrimitiveTitle:(NSString*)value;
 
 - (NSMutableSet*)primitiveAnnotation;
 - (void)setPrimitiveAnnotation:(NSMutableSet*)value;
 
-- (NSMutableSet*)primitiveBooktag;
-- (void)setPrimitiveBooktag:(NSMutableSet*)value;
-
 - (JESAPdf*)primitivePdf;
 - (void)setPrimitivePdf:(JESAPdf*)value;
 
-- (JESAPhoto*)primitivePhoto;
-- (void)setPrimitivePhoto:(JESAPhoto*)value;
+- (NSMutableSet*)primitiveTag;
+- (void)setPrimitiveTag:(NSMutableSet*)value;
 
 @end

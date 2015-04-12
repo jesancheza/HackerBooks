@@ -8,6 +8,15 @@
 
 @implementation JESATag
 
-// Custom logic goes here.
++(instancetype) tagWithName:(NSString *) name
+                    context:(NSManagedObjectContext *) context{
+    
+    JESATag *t = [JESATag insertInManagedObjectContext:context];
+    
+    t.name = name;
+    
+    return t;
+}
+
 
 @end

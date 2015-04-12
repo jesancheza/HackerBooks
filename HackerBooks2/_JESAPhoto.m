@@ -8,7 +8,7 @@ const struct JESAPhotoAttributes JESAPhotoAttributes = {
 };
 
 const struct JESAPhotoRelationships JESAPhotoRelationships = {
-	.book = @"book",
+	.annotation = @"annotation",
 };
 
 @implementation JESAPhotoID
@@ -42,7 +42,7 @@ const struct JESAPhotoRelationships JESAPhotoRelationships = {
 
 @dynamic photoData;
 
-@dynamic book;
+@dynamic annotation;
 
 @end
 

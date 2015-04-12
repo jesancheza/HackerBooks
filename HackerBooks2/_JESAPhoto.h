@@ -9,10 +9,10 @@ extern const struct JESAPhotoAttributes {
 } JESAPhotoAttributes;
 
 extern const struct JESAPhotoRelationships {
-	__unsafe_unretained NSString *book;
+	__unsafe_unretained NSString *annotation;
 } JESAPhotoRelationships;
 
-@class JESABook;
+@class JESAAnnotation;
 
 @interface JESAPhotoID : NSManagedObjectID {}
 @end
@@ -27,9 +27,9 @@ extern const struct JESAPhotoRelationships {
 
 //- (BOOL)validatePhotoData:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) JESABook *book;
+@property (nonatomic, strong) JESAAnnotation *annotation;
 
-//- (BOOL)validateBook:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateAnnotation:(id*)value_ error:(NSError**)error_;
 
 @end
 
@@ -38,7 +38,7 @@ extern const struct JESAPhotoRelationships {
 - (NSData*)primitivePhotoData;
 - (void)setPrimitivePhotoData:(NSData*)value;
 
-- (JESABook*)primitiveBook;
-- (void)setPrimitiveBook:(JESABook*)value;
+- (JESAAnnotation*)primitiveAnnotation;
+- (void)setPrimitiveAnnotation:(JESAAnnotation*)value;
 
 @end

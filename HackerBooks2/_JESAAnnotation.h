@@ -7,17 +7,18 @@
 extern const struct JESAAnnotationAttributes {
 	__unsafe_unretained NSString *creationDate;
 	__unsafe_unretained NSString *modificationDate;
-	__unsafe_unretained NSString *photoData;
 	__unsafe_unretained NSString *text;
 } JESAAnnotationAttributes;
 
 extern const struct JESAAnnotationRelationships {
 	__unsafe_unretained NSString *book;
 	__unsafe_unretained NSString *localization;
+	__unsafe_unretained NSString *photo;
 } JESAAnnotationRelationships;
 
 @class JESABook;
 @class JESALocalization;
+@class JESAPhoto;
 
 @interface JESAAnnotationID : NSManagedObjectID {}
 @end
@@ -36,10 +37,6 @@ extern const struct JESAAnnotationRelationships {
 
 //- (BOOL)validateModificationDate:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSData* photoData;
-
-//- (BOOL)validatePhotoData:(id*)value_ error:(NSError**)error_;
-
 @property (nonatomic, strong) NSString* text;
 
 //- (BOOL)validateText:(id*)value_ error:(NSError**)error_;
@@ -52,6 +49,10 @@ extern const struct JESAAnnotationRelationships {
 
 //- (BOOL)validateLocalization:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) JESAPhoto *photo;
+
+//- (BOOL)validatePhoto:(id*)value_ error:(NSError**)error_;
+
 @end
 
 @interface _JESAAnnotation (CoreDataGeneratedPrimitiveAccessors)
@@ -62,9 +63,6 @@ extern const struct JESAAnnotationRelationships {
 - (NSDate*)primitiveModificationDate;
 - (void)setPrimitiveModificationDate:(NSDate*)value;
 
-- (NSData*)primitivePhotoData;
-- (void)setPrimitivePhotoData:(NSData*)value;
-
 - (NSString*)primitiveText;
 - (void)setPrimitiveText:(NSString*)value;
 
@@ -73,5 +71,8 @@ extern const struct JESAAnnotationRelationships {
 
 - (JESALocalization*)primitiveLocalization;
 - (void)setPrimitiveLocalization:(JESALocalization*)value;
+
+- (JESAPhoto*)primitivePhoto;
+- (void)setPrimitivePhoto:(JESAPhoto*)value;
 
 @end

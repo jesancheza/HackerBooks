@@ -6,6 +6,7 @@
 
 extern const struct JESAPdfAttributes {
 	__unsafe_unretained NSString *pdfData;
+	__unsafe_unretained NSString *url;
 } JESAPdfAttributes;
 
 extern const struct JESAPdfRelationships {
@@ -27,6 +28,10 @@ extern const struct JESAPdfRelationships {
 
 //- (BOOL)validatePdfData:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSString* url;
+
+//- (BOOL)validateUrl:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) JESABook *book;
 
 //- (BOOL)validateBook:(id*)value_ error:(NSError**)error_;
@@ -37,6 +42,9 @@ extern const struct JESAPdfRelationships {
 
 - (NSData*)primitivePdfData;
 - (void)setPrimitivePdfData:(NSData*)value;
+
+- (NSString*)primitiveUrl;
+- (void)setPrimitiveUrl:(NSString*)value;
 
 - (JESABook*)primitiveBook;
 - (void)setPrimitiveBook:(JESABook*)value;

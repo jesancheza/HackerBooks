@@ -8,7 +8,7 @@ const struct JESATagAttributes JESATagAttributes = {
 };
 
 const struct JESATagRelationships JESATagRelationships = {
-	.booktag = @"booktag",
+	.book = @"book",
 };
 
 @implementation JESATagID
@@ -42,14 +42,14 @@ const struct JESATagRelationships JESATagRelationships = {
 
 @dynamic name;
 
-@dynamic booktag;
+@dynamic book;
 
-- (NSMutableSet*)booktagSet {
-	[self willAccessValueForKey:@"booktag"];
+- (NSMutableSet*)bookSet {
+	[self willAccessValueForKey:@"book"];
 
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"booktag"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"book"];
 
-	[self didAccessValueForKey:@"booktag"];
+	[self didAccessValueForKey:@"book"];
 	return result;
 }
 

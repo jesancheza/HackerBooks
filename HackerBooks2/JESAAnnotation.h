@@ -5,6 +5,4 @@
 @interface JESAAnnotation : _JESAAnnotation {}
 
 
-@property(nonatomic, strong) UIImage *image;
-
 @end

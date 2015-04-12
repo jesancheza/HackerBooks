@@ -6,14 +6,14 @@
 const struct JESABookAttributes JESABookAttributes = {
 	.authors = @"authors",
 	.isFavorite = @"isFavorite",
+	.photoData = @"photoData",
 	.title = @"title",
 };
 
 const struct JESABookRelationships JESABookRelationships = {
 	.annotation = @"annotation",
-	.booktag = @"booktag",
 	.pdf = @"pdf",
-	.photo = @"photo",
+	.tag = @"tag",
 };
 
 @implementation JESABookID
@@ -73,6 +73,8 @@ const struct JESABookRelationships JESABookRelationships = {
 	[self setPrimitiveIsFavorite:@(value_)];
 }
 
+@dynamic photoData;
+
 @dynamic title;
 
 @dynamic annotation;
@@ -86,20 +88,18 @@ const struct JESABookRelationships JESABookRelationships = {
 	return result;
 }
 
-@dynamic booktag;
-
-- (NSMutableSet*)booktagSet {
-	[self willAccessValueForKey:@"booktag"];
-
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"booktag"];
-
-	[self didAccessValueForKey:@"booktag"];
-	return result;
-}
-
 @dynamic pdf;
 
-@dynamic photo;
+@dynamic tag;
+
+- (NSMutableSet*)tagSet {
+	[self willAccessValueForKey:@"tag"];
+
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"tag"];
+
+	[self didAccessValueForKey:@"tag"];
+	return result;
+}
 
 @end
 

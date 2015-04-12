@@ -1,5 +1,7 @@
 #import "_JESAPdf.h"
 
 @interface JESAPdf : _JESAPdf {}
-// Custom logic goes here.
+
++(instancetype) pdfWithStringURL:(NSString *) url
+                         context:(NSManagedObjectContext *) context;
 @end

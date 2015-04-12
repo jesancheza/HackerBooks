@@ -17,14 +17,12 @@
 		EDB4D1741AD931A200194F06 /* JESAModelBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1731AD931A200194F06 /* JESAModelBaseClass.m */; };
 		EDB4D1841AD9327B00194F06 /* _JESAAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1771AD9327B00194F06 /* _JESAAnnotation.m */; };
 		EDB4D1851AD9327B00194F06 /* _JESABook.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1791AD9327B00194F06 /* _JESABook.m */; };
-		EDB4D1861AD9327B00194F06 /* _JESABookTag.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D17B1AD9327B00194F06 /* _JESABookTag.m */; };
 		EDB4D1871AD9327B00194F06 /* _JESALocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D17D1AD9327B00194F06 /* _JESALocalization.m */; };
 		EDB4D1881AD9327B00194F06 /* _JESAPdf.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D17F1AD9327B00194F06 /* _JESAPdf.m */; };
 		EDB4D1891AD9327B00194F06 /* _JESAPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1811AD9327B00194F06 /* _JESAPhoto.m */; };
 		EDB4D18A1AD9327B00194F06 /* _JESATag.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1831AD9327B00194F06 /* _JESATag.m */; };
 		EDB4D1991AD9329200194F06 /* JESAAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D18C1AD9329200194F06 /* JESAAnnotation.m */; };
 		EDB4D19A1AD9329200194F06 /* JESABook.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D18E1AD9329200194F06 /* JESABook.m */; };
-		EDB4D19B1AD9329200194F06 /* JESABookTag.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1901AD9329200194F06 /* JESABookTag.m */; };
 		EDB4D19C1AD9329200194F06 /* JESALocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1921AD9329200194F06 /* JESALocalization.m */; };
 		EDB4D19D1AD9329200194F06 /* JESAPdf.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1941AD9329200194F06 /* JESAPdf.m */; };
 		EDB4D19E1AD9329200194F06 /* JESAPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1961AD9329200194F06 /* JESAPhoto.m */; };
@@ -62,8 +60,6 @@
 		EDB4D1771AD9327B00194F06 /* _JESAAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JESAAnnotation.m; sourceTree = "<group>"; };
 		EDB4D1781AD9327B00194F06 /* _JESABook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JESABook.h; sourceTree = "<group>"; };
 		EDB4D1791AD9327B00194F06 /* _JESABook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JESABook.m; sourceTree = "<group>"; };
-		EDB4D17A1AD9327B00194F06 /* _JESABookTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JESABookTag.h; sourceTree = "<group>"; };
-		EDB4D17B1AD9327B00194F06 /* _JESABookTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JESABookTag.m; sourceTree = "<group>"; };
 		EDB4D17C1AD9327B00194F06 /* _JESALocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JESALocalization.h; sourceTree = "<group>"; };
 		EDB4D17D1AD9327B00194F06 /* _JESALocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JESALocalization.m; sourceTree = "<group>"; };
 		EDB4D17E1AD9327B00194F06 /* _JESAPdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JESAPdf.h; sourceTree = "<group>"; };
@@ -76,8 +72,6 @@
 		EDB4D18C1AD9329200194F06 /* JESAAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESAAnnotation.m; sourceTree = "<group>"; };
 		EDB4D18D1AD9329200194F06 /* JESABook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESABook.h; sourceTree = "<group>"; };
 		EDB4D18E1AD9329200194F06 /* JESABook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESABook.m; sourceTree = "<group>"; };
-		EDB4D18F1AD9329200194F06 /* JESABookTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESABookTag.h; sourceTree = "<group>"; };
-		EDB4D1901AD9329200194F06 /* JESABookTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESABookTag.m; sourceTree = "<group>"; };
 		EDB4D1911AD9329200194F06 /* JESALocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESALocalization.h; sourceTree = "<group>"; };
 		EDB4D1921AD9329200194F06 /* JESALocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESALocalization.m; sourceTree = "<group>"; };
 		EDB4D1931AD9329200194F06 /* JESAPdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESAPdf.h; sourceTree = "<group>"; };
@@ -174,8 +168,6 @@
 				EDB4D18C1AD9329200194F06 /* JESAAnnotation.m */,
 				EDB4D18D1AD9329200194F06 /* JESABook.h */,
 				EDB4D18E1AD9329200194F06 /* JESABook.m */,
-				EDB4D18F1AD9329200194F06 /* JESABookTag.h */,
-				EDB4D1901AD9329200194F06 /* JESABookTag.m */,
 				EDB4D1911AD9329200194F06 /* JESALocalization.h */,
 				EDB4D1921AD9329200194F06 /* JESALocalization.m */,
 				EDB4D1931AD9329200194F06 /* JESAPdf.h */,
@@ -200,8 +192,6 @@
 				EDB4D1771AD9327B00194F06 /* _JESAAnnotation.m */,
 				EDB4D1781AD9327B00194F06 /* _JESABook.h */,
 				EDB4D1791AD9327B00194F06 /* _JESABook.m */,
-				EDB4D17A1AD9327B00194F06 /* _JESABookTag.h */,
-				EDB4D17B1AD9327B00194F06 /* _JESABookTag.m */,
 				EDB4D17C1AD9327B00194F06 /* _JESALocalization.h */,
 				EDB4D17D1AD9327B00194F06 /* _JESALocalization.m */,
 				EDB4D17E1AD9327B00194F06 /* _JESAPdf.h */,
@@ -326,7 +316,6 @@
 				EDB4D1741AD931A200194F06 /* JESAModelBaseClass.m in Sources */,
 				EDB4D1891AD9327B00194F06 /* _JESAPhoto.m in Sources */,
 				EDB4D18A1AD9327B00194F06 /* _JESATag.m in Sources */,
-				EDB4D1861AD9327B00194F06 /* _JESABookTag.m in Sources */,
 				EDB4D19A1AD9329200194F06 /* JESABook.m in Sources */,
 				EDB4D1A31AD9370500194F06 /* AGTCoreDataTableViewController.m in Sources */,
 				EDB4D1881AD9327B00194F06 /* _JESAPdf.m in Sources */,
@@ -341,7 +330,6 @@
 				EDB4D1841AD9327B00194F06 /* _JESAAnnotation.m in Sources */,
 				EDB4D19F1AD9329200194F06 /* JESATag.m in Sources */,
 				EDB4D1851AD9327B00194F06 /* _JESABook.m in Sources */,
-				EDB4D19B1AD9329200194F06 /* JESABookTag.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

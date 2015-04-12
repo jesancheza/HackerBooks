@@ -9,10 +9,10 @@ extern const struct JESATagAttributes {
 } JESATagAttributes;
 
 extern const struct JESATagRelationships {
-	__unsafe_unretained NSString *booktag;
+	__unsafe_unretained NSString *book;
 } JESATagRelationships;
 
-@class JESABookTag;
+@class JESABook;
 
 @interface JESATagID : NSManagedObjectID {}
 @end
@@ -27,17 +27,17 @@ extern const struct JESATagRelationships {
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSSet *booktag;
+@property (nonatomic, strong) NSSet *book;
 
-- (NSMutableSet*)booktagSet;
+- (NSMutableSet*)bookSet;
 
 @end
 
-@interface _JESATag (BooktagCoreDataGeneratedAccessors)
-- (void)addBooktag:(NSSet*)value_;
-- (void)removeBooktag:(NSSet*)value_;
-- (void)addBooktagObject:(JESABookTag*)value_;
-- (void)removeBooktagObject:(JESABookTag*)value_;
+@interface _JESATag (BookCoreDataGeneratedAccessors)
+- (void)addBook:(NSSet*)value_;
+- (void)removeBook:(NSSet*)value_;
+- (void)addBookObject:(JESABook*)value_;
+- (void)removeBookObject:(JESABook*)value_;
 
 @end
 
@@ -46,7 +46,7 @@ extern const struct JESATagRelationships {
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
 
-- (NSMutableSet*)primitiveBooktag;
-- (void)setPrimitiveBooktag:(NSMutableSet*)value;
+- (NSMutableSet*)primitiveBook;
+- (void)setPrimitiveBook:(NSMutableSet*)value;
 
 @end

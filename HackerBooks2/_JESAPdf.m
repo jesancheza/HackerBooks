@@ -5,6 +5,7 @@
 
 const struct JESAPdfAttributes JESAPdfAttributes = {
 	.pdfData = @"pdfData",
+	.url = @"url",
 };
 
 const struct JESAPdfRelationships JESAPdfRelationships = {
@@ -41,6 +42,8 @@ const struct JESAPdfRelationships JESAPdfRelationships = {
 }
 
 @dynamic pdfData;
+
+@dynamic url;
 
 @dynamic book;
 

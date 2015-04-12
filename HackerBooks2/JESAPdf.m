@@ -8,6 +8,15 @@
 
 @implementation JESAPdf
 
-// Custom logic goes here.
++(instancetype) pdfWithStringURL:(NSString *) url
+                         context:(NSManagedObjectContext *) context{
+    
+    JESAPdf *pdf = [JESAPdf insertInManagedObjectContext:context];
+    
+    pdf.url = url;
+    pdf.pdfData = nil;
+    
+    return pdf;
+}
 
 @end

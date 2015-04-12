@@ -7,9 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "JESABook.h"
+#import "AGTCoreDataStack.h"
+#import "JESAPdf.h"
+#import "JESATag.h"
 
 @interface AppDelegate ()
-
+@property (nonatomic, strong) AGTCoreDataStack *stack;
 @end
 
 @implementation AppDelegate
@@ -18,6 +22,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    // Creamos una instancia de stack
+    self.stack = [AGTCoreDataStack coreDataStackWithModelName:@"Model"];
+    
+    // Descargamos datos
+    [self downloadData];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
@@ -44,5 +55,70 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+-(void) downloadData{
+    // Descargo el JSON
+    NSURL *urlJSON = [NSURL URLWithString:@"https://t.co/K9ziV0z3SJ"];
+    
+    NSData *data = [NSData dataWithContentsOfURL:urlJSON];
+    
+    // Recuperamos JSON
+    NSError *err;
+    NSArray * JSONObjects = [NSJSONSerialization JSONObjectWithData:data
+                                                            options:NSJSONReadingMutableContainers
+                                                              error:&err];
+    
+    if (JSONObjects != nil) {
+        // Recorremos el JSON
+        for (NSDictionary *dic in JSONObjects) {
+            
+            // Recumeramos la imagen
+            NSURL *image = [NSURL URLWithString:[dic objectForKey:@"image_url"]];
+            
+            NSData *imageData = [NSData dataWithContentsOfURL:image];
+            
+            // Creamos el pdf, solo la url
+            JESAPdf *pdf = [JESAPdf pdfWithStringURL:[dic objectForKey:@"pdf_url"]
+                                             context:self.stack.context];
+            
+            // Creamos los tags
+            NSMutableSet *tags;
+            NSArray *listaTags = [self extractTagsFromJSON:[dic objectForKey:@"tags"]];
+            for (NSString *tag in listaTags) {
+                JESATag *tagObjc =  [JESATag tagWithName:tag
+                                                 context:self.stack.context];
+                
+                if (tags != nil) {
+                    [tags addObject:tagObjc];
+                }else{
+                    tags = [tags initWithObjects:tagObjc, nil];
+                }
+                
+            }
+            
+            [JESABook bookWithTitle:[dic objectForKey:@"title"]
+                                            photo:imageData
+                                             book:pdf
+                                             tags:tags
+                                          authors:[dic objectForKey:@"authors"]
+                                       isFavorite:0
+                                          context:self.stack.context];
+            
+            
+        }
+    }
+    
+}
+
+#pragma mark - Utils
+-(NSArray *) extractTagsFromJSON:(NSString *) tagsJSON{
+    
+    
+    NSArray *tags = [tagsJSON componentsSeparatedByString:@","];
+    
+    return tags;
+}
+
 
 @end
