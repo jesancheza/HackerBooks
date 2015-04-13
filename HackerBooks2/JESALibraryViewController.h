@@ -7,7 +7,18 @@
 //
 
 #import "AGTCoreDataTableViewController.h"
+@class JESALibraryViewController;
+@class JESABook;
 
-@interface JESALibraryViewController : AGTCoreDataTableViewController
+@protocol JESALibraryViewControllerDelegate <NSObject>
+
+@optional
+-(void) libraryViewController:(JESALibraryViewController *) uVC didSelectBook:(JESABook *) book;
+
+@end
+
+@interface JESALibraryViewController : AGTCoreDataTableViewController <JESALibraryViewControllerDelegate>
+
+@property(weak, nonatomic) id<JESALibraryViewControllerDelegate> delegate;
 
 @end

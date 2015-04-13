@@ -9,6 +9,7 @@
 #import "JESALibraryViewController.h"
 #import "JESABook.h"
 #import "JESABookCellView.h"
+#import "JESABookViewController.h"
 
 @interface JESALibraryViewController ()
 
@@ -30,6 +31,7 @@
          forCellReuseIdentifier:[JESABookCellView cellId]];
 }
 
+#pragma mark - Table view data source
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     // Averiguar cual es la libreta
@@ -53,9 +55,31 @@
     
 }
 
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    JESABook *book = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    // Mandamos el mensaje al delegado si lo entiende
+    if ([self.delegate respondsToSelector:@selector(libraryViewController:didSelectBook:)]) {
+        [self.delegate libraryViewController:self
+                               didSelectBook:book];
+    }
+}
+
 #pragma mark - TableView Delegate
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [JESABookCellView cellHeight];
+}
+
+#pragma mark - JESALibraryTableViewControllerDelegate
+-(void) libraryViewController:(JESALibraryViewController *) uVC
+                didSelectBook:(JESABook *) book{
+    // Creamos un bookVC
+    JESABookViewController *bookVC = [[JESABookViewController alloc] initWithModel:book];
+    
+    // Hago un push
+    [self.navigationController pushViewController:bookVC
+                                         animated:YES];
 }
 
 @end

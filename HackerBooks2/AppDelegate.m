@@ -69,6 +69,10 @@
     UISplitViewController *spltVC = [[UISplitViewController alloc] init];
     spltVC.viewControllers = @[lNav, bNav];
     
+    // Indicamos los delegados
+    spltVC.delegate = bVC;
+    lVC.delegate = bVC;
+    
     self.window.rootViewController = spltVC;
     
     self.window.backgroundColor = [UIColor whiteColor];

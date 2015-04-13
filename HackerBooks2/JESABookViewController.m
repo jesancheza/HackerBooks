@@ -45,4 +45,30 @@
     
 }
 
+#pragma mark - UISplitViewControllerDelegate
+-(void) splitViewController:(UISplitViewController *)svc
+    willChangeToDisplayMode:(UISplitViewControllerDisplayMode)displayMode{
+    
+    // Averiguar si la tabla se ve o no
+    if (displayMode == UISplitViewControllerDisplayModePrimaryHidden) {
+        // La tabla está oculta y cuelga del botón
+        // Ponemos ese botón en mi barra de navegación
+        self.navigationItem.leftBarButtonItem = svc.displayModeButtonItem;
+    }else{
+        // Se muestra la tabla: oculto el botón de la barra de navegación
+        self.navigationItem.leftBarButtonItem = nil;
+    }
+}
+
+#pragma mark - JESALibraryTableViewControllerDelegate
+-(void) libraryViewController:(JESALibraryViewController *) uVC
+                didSelectBook:(JESABook *) book{
+    
+    // Sincronizo el modelo
+    self.model = book;
+    
+    // Sincornizo el modelo con la vista
+    [self syncViewWithModel];
+}
+
 @end

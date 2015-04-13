@@ -8,8 +8,9 @@
 
 @import UIKit;
 @class JESABook;
+#import "JESALibraryViewController.h"
 
-@interface JESABookViewController : UIViewController
+@interface JESABookViewController : UIViewController <UISplitViewControllerDelegate, JESALibraryViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *photoView;
 @property (weak, nonatomic) IBOutlet UILabel *titleView;
 @property (weak, nonatomic) IBOutlet UILabel *authorsView;
