@@ -6,13 +6,13 @@
 const struct JESABookAttributes JESABookAttributes = {
 	.authors = @"authors",
 	.isFavorite = @"isFavorite",
-	.photoData = @"photoData",
 	.title = @"title",
 };
 
 const struct JESABookRelationships JESABookRelationships = {
 	.annotation = @"annotation",
 	.pdf = @"pdf",
+	.photo = @"photo",
 	.tag = @"tag",
 };
 
@@ -73,8 +73,6 @@ const struct JESABookRelationships JESABookRelationships = {
 	[self setPrimitiveIsFavorite:@(value_)];
 }
 
-@dynamic photoData;
-
 @dynamic title;
 
 @dynamic annotation;
@@ -89,6 +87,8 @@ const struct JESABookRelationships JESABookRelationships = {
 }
 
 @dynamic pdf;
+
+@dynamic photo;
 
 @dynamic tag;
 

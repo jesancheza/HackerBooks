@@ -3,11 +3,9 @@
 
 @interface JESABook : _JESABook {}
 
-@property(nonatomic, strong) UIImage *image;
-
 // Métodos de clase
 +(instancetype) bookWithTitle:(NSString *) title
-                        photo:(NSData *) image
+                        photo:(JESAPhoto *) image
                          book:(JESAPdf *) bookPdf
                          tags:(NSSet *) tags
                       authors:(NSString *) authors

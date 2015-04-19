@@ -11,10 +11,10 @@
     <entity name="Book" representedClassName="JESABook" syncable="YES">
         <attribute name="authors" attributeType="String" syncable="YES"/>
         <attribute name="isFavorite" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="photoData" attributeType="Binary" syncable="YES"/>
         <attribute name="title" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="annotation" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Annotation" inverseName="book" inverseEntity="Annotation" syncable="YES"/>
         <relationship name="pdf" maxCount="1" deletionRule="Cascade" destinationEntity="Pdf" inverseName="book" inverseEntity="Pdf" syncable="YES"/>
+        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Photo" inverseName="book" inverseEntity="Photo" syncable="YES"/>
         <relationship name="tag" toMany="YES" deletionRule="Cascade" destinationEntity="Tag" inverseName="book" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="Localization" representedClassName="JESALocalization" syncable="YES">
@@ -30,18 +30,20 @@
     </entity>
     <entity name="Photo" representedClassName="JESAPhoto" syncable="YES">
         <attribute name="photoData" attributeType="Binary" syncable="YES"/>
-        <relationship name="annotation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Annotation" inverseName="photo" inverseEntity="Annotation" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="annotation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Annotation" inverseName="photo" inverseEntity="Annotation" syncable="YES"/>
+        <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="photo" inverseEntity="Book" syncable="YES"/>
     </entity>
     <entity name="Tag" representedClassName="JESATag" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="book" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Book" inverseName="tag" inverseEntity="Book" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Annotation" positionX="-72" positionY="162" width="128" height="133"/>
-        <element name="Book" positionX="-342" positionY="-6" width="128" height="148"/>
-        <element name="Localization" positionX="88" positionY="363" width="128" height="105"/>
+        <element name="Annotation" positionX="61" positionY="27" width="128" height="133"/>
+        <element name="Book" positionX="-342" positionY="-6" width="128" height="150"/>
+        <element name="Localization" positionX="106" positionY="297" width="128" height="105"/>
         <element name="Pdf" positionX="-342" positionY="-288" width="128" height="88"/>
-        <element name="Photo" positionX="-315" positionY="360" width="128" height="73"/>
+        <element name="Photo" positionX="-315" positionY="360" width="128" height="105"/>
         <element name="Tag" positionX="-63" positionY="-234" width="128" height="73"/>
     </elements>
 </model>

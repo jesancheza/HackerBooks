@@ -5,10 +5,12 @@
 
 const struct JESAPhotoAttributes JESAPhotoAttributes = {
 	.photoData = @"photoData",
+	.url = @"url",
 };
 
 const struct JESAPhotoRelationships JESAPhotoRelationships = {
 	.annotation = @"annotation",
+	.book = @"book",
 };
 
 @implementation JESAPhotoID
@@ -42,7 +44,20 @@ const struct JESAPhotoRelationships JESAPhotoRelationships = {
 
 @dynamic photoData;
 
+@dynamic url;
+
 @dynamic annotation;
+
+- (NSMutableSet*)annotationSet {
+	[self willAccessValueForKey:@"annotation"];
+
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"annotation"];
+
+	[self didAccessValueForKey:@"annotation"];
+	return result;
+}
+
+@dynamic book;
 
 @end
 
