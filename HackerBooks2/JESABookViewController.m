@@ -103,7 +103,10 @@
 //IMAGE_DID_CHANGE_NOTIFICATION
 -(void)notifyThatImageDidChange:(NSNotification*) notification{
     
-    //[self.tableView reloadData];
+    JESAPhoto *photo = [notification object];
+    if (self.model == photo.book) {
+        self.photoView.image = photo.image;
+    }
 }
 
 @end
