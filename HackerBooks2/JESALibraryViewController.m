@@ -10,6 +10,8 @@
 #import "JESABook.h"
 #import "JESABookCellView.h"
 #import "JESABookViewController.h"
+#import "JESAPhoto.h"
+#import "Settings.h"
 
 @interface JESALibraryViewController ()
 
@@ -17,7 +19,7 @@
 
 @implementation JESALibraryViewController
 
-
+#pragma mark - View Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -29,6 +31,13 @@
     
     [self.tableView registerNib:cellNib
          forCellReuseIdentifier:[JESABookCellView cellId]];
+    
+    // Alta en notificaciones
+    [self setupNotifications];
+}
+
+-(void) dealloc{
+    [self tearDownNotifications];
 }
 
 #pragma mark - Table view data source
@@ -48,7 +57,7 @@
     // Sincronizamos library -> Celda
     cell.titleView.text = b.title;
     cell.authorsView.text = b.authors;
-    cell.photoView.image = b.image;
+    cell.photoView.image = b.photo.image;
     
     // Devolverla
     return cell;
@@ -80,6 +89,30 @@
     // Hago un push
     [self.navigationController pushViewController:bookVC
                                          animated:YES];
+}
+
+#pragma mark -  Notifications
+-(void) setupNotifications{
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self
+           selector:@selector(notifyThatImageDidChange:)
+               name:IMAGE_DID_CHANGE_NOTIFICATION
+             object:nil];
+    
+}
+
+-(void) tearDownNotifications{
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self];
+}
+
+//IMAGE_DID_CHANGE_NOTIFICATION
+-(void)notifyThatImageDidChange:(NSNotification*) notification{
+    
+    [self.tableView reloadData];
 }
 
 @end

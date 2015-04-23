@@ -8,6 +8,8 @@
 
 #import "JESABookViewController.h"
 #import "JESABook.h"
+#import "JESAPhoto.h"
+#import "Settings.h"
 
 @interface JESABookViewController ()
 
@@ -29,18 +31,27 @@
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     // Sincronizamos modelo -> vista
     [self syncViewWithModel];
     
     // Si estoy dentro de un SplitVC me pongo el botón
     self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+    
+    // Alta en notificaciones
+    [self setupNotifications];
 
+}
+
+-(void) dealloc{
+    [self tearDownNotifications];
 }
 
 #pragma mark - Utils
 -(void) syncViewWithModel{
     self.titleView.text = self.model.title;
-    self.photoView.image = self.model.image;
+    self.photoView.image = self.model.photo.image;
     self.authorsView.text = self.model.authors;
     
 }
@@ -69,6 +80,30 @@
     
     // Sincornizo el modelo con la vista
     [self syncViewWithModel];
+}
+
+#pragma mark -  Notifications
+-(void) setupNotifications{
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self
+           selector:@selector(notifyThatImageDidChange:)
+               name:IMAGE_DID_CHANGE_NOTIFICATION
+             object:nil];
+    
+}
+
+-(void) tearDownNotifications{
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self];
+}
+
+//IMAGE_DID_CHANGE_NOTIFICATION
+-(void)notifyThatImageDidChange:(NSNotification*) notification{
+    
+    //[self.tableView reloadData];
 }
 
 @end

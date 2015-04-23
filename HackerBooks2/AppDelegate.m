@@ -15,6 +15,7 @@
 #import "JESASandboxAndUserDefaultUtils.h"
 #import "Settings.h"
 #import "JESABookViewController.h"
+#import "JESAPhoto.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) AGTCoreDataStack *stack;
@@ -39,6 +40,8 @@
         
         [self downloadData];
     }
+    
+    [self downloadData];
     
     // Un fetchRequest
     NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[JESABook entityName]];
@@ -128,39 +131,9 @@
         // Recorremos el JSON
         for (NSDictionary *dic in JSONObjects) {
             
-            // Recumeramos la imagen
-            NSURL *image = [NSURL URLWithString:[dic objectForKey:@"image_url"]];
-            
-            NSData *imageData = [NSData dataWithContentsOfURL:image];
-            
-            // Creamos el pdf, solo la url
-            JESAPdf *pdf = [JESAPdf pdfWithStringURL:[dic objectForKey:@"pdf_url"]
-                                             context:self.stack.context];
-            
-            // Creamos los tags
-            NSMutableSet *tags;
-            NSArray *listaTags = [self extractTagsFromJSON:[dic objectForKey:@"tags"]];
-            for (NSString *tag in listaTags) {
-                JESATag *tagObjc =  [JESATag tagWithName:tag
-                                                 context:self.stack.context];
-                
-                if (tags != nil) {
-                    [tags addObject:tagObjc];
-                }else{
-                    tags = [tags initWithObjects:tagObjc, nil];
-                }
-                
-            }
-            
-            [JESABook bookWithTitle:[dic objectForKey:@"title"]
-                              photo:imageData
-                               book:pdf
-                               tags:tags
-                            authors:[dic objectForKey:@"authors"]
-                         isFavorite:[NSNumber numberWithBool:NO]
-                            context:self.stack.context];
-            
-            
+            [JESABook bookWithDictionary:dic
+                                 context:self.stack.context];
+        
         }
     }
     
@@ -168,15 +141,6 @@
         NSLog(@"Erorr al guardar: %@", error);
     }];
     
-}
-
-#pragma mark - Utils
--(NSArray *) extractTagsFromJSON:(NSString *) tagsJSON{
-    
-    
-    NSArray *tags = [tagsJSON componentsSeparatedByString:@","];
-    
-    return tags;
 }
 
 

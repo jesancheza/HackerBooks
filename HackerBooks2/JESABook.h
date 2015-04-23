@@ -12,5 +12,16 @@
                    isFavorite:(NSNumber *) isFavorite
                       context:(NSManagedObjectContext *) context;
 
++(instancetype) bookWithDictionary:(NSDictionary *) dic
+                           context:(NSManagedObjectContext *) context;
+
+-(instancetype) initWithTitle:(NSString *) title
+                        photo:(JESAPhoto *) image
+                         book:(JESAPdf *) bookPdf
+                         tags:(NSSet *) tags
+                      authors:(NSString *) authors
+                   isFavorite:(NSNumber *) isFavorite
+                      context:(NSManagedObjectContext *) context;
+
 
 @end

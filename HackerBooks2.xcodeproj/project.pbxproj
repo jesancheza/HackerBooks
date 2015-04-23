@@ -34,6 +34,7 @@
 		EDB4D1B61ADB277E00194F06 /* JESABookCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDB4D1B41ADB277E00194F06 /* JESABookCellView.xib */; };
 		EDB4D1BA1ADB2C5500194F06 /* JESABookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1B81ADB2C5500194F06 /* JESABookViewController.m */; };
 		EDB4D1BB1ADB2C5500194F06 /* JESABookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDB4D1B91ADB2C5500194F06 /* JESABookViewController.xib */; };
+		EDCEAF771AE464A900A4E060 /* noimage.png in Resources */ = {isa = PBXBuildFile; fileRef = EDCEAF761AE464A900A4E060 /* noimage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		EDB4D1B71ADB2C5500194F06 /* JESABookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESABookViewController.h; sourceTree = "<group>"; };
 		EDB4D1B81ADB2C5500194F06 /* JESABookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESABookViewController.m; sourceTree = "<group>"; };
 		EDB4D1B91ADB2C5500194F06 /* JESABookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JESABookViewController.xib; sourceTree = "<group>"; };
+		EDCEAF761AE464A900A4E060 /* noimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noimage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 		EDB4D14A1AD9300F00194F06 /* HackerBooks2 */ = {
 			isa = PBXGroup;
 			children = (
+				EDCEAF751AE4648F00A4E060 /* Resources */,
 				EDB4D1AC1ADB266600194F06 /* Views */,
 				EDB4D1AA1ADB246800194F06 /* Utils */,
 				EDB4D16B1AD9302800194F06 /* Models */,
@@ -257,6 +260,14 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		EDCEAF751AE4648F00A4E060 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EDCEAF761AE464A900A4E060 /* noimage.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -337,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDCEAF771AE464A900A4E060 /* noimage.png in Resources */,
 				EDB4D1BB1ADB2C5500194F06 /* JESABookViewController.xib in Resources */,
 				EDB4D1561AD9300F00194F06 /* LaunchScreen.xib in Resources */,
 				EDB4D1B61ADB277E00194F06 /* JESABookCellView.xib in Resources */,
@@ -568,6 +580,7 @@
 				EDB4D1671AD9301100194F06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EDB4D1681AD9301100194F06 /* Build configuration list for PBXNativeTarget "HackerBooks2Tests" */ = {
 			isa = XCConfigurationList;
@@ -576,6 +589,7 @@
 				EDB4D16A1AD9301100194F06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

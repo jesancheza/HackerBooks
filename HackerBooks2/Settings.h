@@ -7,3 +7,4 @@
 //
 
 #define FIRST_TIME @"firstTime"
+#define IMAGE_DID_CHANGE_NOTIFICATION @"JESAPhotoimageDidChange"
