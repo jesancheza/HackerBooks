@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackerBooks2/JESABookViewController.m"
-            timestampString = "451484836.995343"
+            timestampString = "451597088.643567"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "-notifyThatImageDidChange:"
             landmarkType = "5">
          </BreakpointContent>

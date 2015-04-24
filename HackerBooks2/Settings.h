@@ -8,3 +8,6 @@
 
 #define FIRST_TIME @"firstTime"
 #define IMAGE_DID_CHANGE_NOTIFICATION @"JESAPhotoimageDidChange"
+
+#define BOOK_DID_CHANGE_NOTIFICATION_NAME @"bookDidChangeNotification"
+#define BOOK_KEY @"bookKey"

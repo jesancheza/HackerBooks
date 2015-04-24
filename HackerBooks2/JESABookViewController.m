@@ -10,6 +10,7 @@
 #import "JESABook.h"
 #import "JESAPhoto.h"
 #import "Settings.h"
+#import "JESASimplePdfViewController.h"
 
 @interface JESABookViewController ()
 
@@ -33,6 +34,32 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
+    // Toolbar
+    [self.navigationController setToolbarHidden:NO];
+    
+    // Creamos botones para el toolbar
+    UIBarButtonItem *buttonFavorite = [[UIBarButtonItem alloc] initWithTitle: @"Order Alfabético"
+                                                                       style: UIBarButtonItemStyleDone
+                                                                      target: self
+                                                                      action: @selector(addFavorite)];
+    
+    UIBarButtonItem *addNotification = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                                     target:self
+                                                                                     action:@selector(addNotification)];
+    
+    UIBarButtonItem *buttonReadPdf = [[UIBarButtonItem alloc] initWithTitle:@"Leer libro"
+                                                                      style:UIBarButtonItemStyleDone
+                                                                     target:self
+                                                                     action:@selector(displaySimplePDF)];
+    
+    // Botón de espacio
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                           target:nil
+                                                                           action:nil];
+    
+    // Añadimos botones al toolbar
+    self.toolbarItems = @[buttonFavorite, space, addNotification, space, buttonReadPdf];
+    
     // Sincronizamos modelo -> vista
     [self syncViewWithModel];
     
@@ -46,6 +73,15 @@
 
 -(void) dealloc{
     [self tearDownNotifications];
+}
+
+#pragma mark - Actions
+- (IBAction)displaySimplePDF {
+    // Crear un simplePDFVC
+    JESASimplePdfViewController *pVC = [[JESASimplePdfViewController alloc] initWithModel:self.model];
+    
+    // Hacer un push
+    [self.navigationController pushViewController:pVC animated:YES];
 }
 
 #pragma mark - Utils
