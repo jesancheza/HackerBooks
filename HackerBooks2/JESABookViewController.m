@@ -37,8 +37,16 @@
     // Toolbar
     [self.navigationController setToolbarHidden:NO];
     
+    //Comprobamos favoritos
+    NSString *buttonFav = @"";
+    if (self.model.isFavorite == [NSNumber numberWithBool:YES]) {
+        buttonFav = @"★";
+    }else{
+        buttonFav = @"☆";
+    }
+    
     // Creamos botones para el toolbar
-    UIBarButtonItem *buttonFavorite = [[UIBarButtonItem alloc] initWithTitle: @"Order Alfabético"
+    UIBarButtonItem *buttonFavorite = [[UIBarButtonItem alloc] initWithTitle: buttonFav
                                                                        style: UIBarButtonItemStyleDone
                                                                       target: self
                                                                       action: @selector(addFavorite)];
@@ -82,6 +90,14 @@
     
     // Hacer un push
     [self.navigationController pushViewController:pVC animated:YES];
+}
+
+-(IBAction) addFavorite{
+    
+}
+
+-(IBAction) addNotification{
+    
 }
 
 #pragma mark - Utils

@@ -41,8 +41,6 @@
         [self downloadData];
     }
     
-    [self downloadData];
-    
     // Un fetchRequest
     NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[JESABook entityName]];
     req.sortDescriptors = @[[NSSortDescriptor
@@ -57,26 +55,13 @@
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
     
-    // Creamos los controladores en sus navigation controller
-    JESALibraryViewController *lVC = [[JESALibraryViewController alloc] initWithFetchedResultsController:fc
-                                                                                                   style:UITableViewStylePlain];
     
-    UINavigationController *lNav = [[UINavigationController alloc] initWithRootViewController:lVC];
-    
-    JESABookViewController *bVC = [[JESABookViewController alloc]
-                                   initWithModel:[fc objectAtIndexPath:[NSIndexPath indexPathForRow:0
-                                                                                          inSection:0]]];
-    UINavigationController *bNav = [[UINavigationController alloc] initWithRootViewController:bVC];
-    
-    // Creamos un combinador
-    UISplitViewController *spltVC = [[UISplitViewController alloc] init];
-    spltVC.viewControllers = @[lNav, bNav];
-    
-    // Indicamos los delegados
-    spltVC.delegate = bVC;
-    lVC.delegate = bVC;
-    
-    self.window.rootViewController = spltVC;
+    // Identificamos si usamos pantalla grande o pequeña
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        [self configureForPadWithModel:fc];
+    }else{
+        [self configureForPhoneWithModel:fc];
+    }
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -141,6 +126,43 @@
         NSLog(@"Erorr al guardar: %@", error);
     }];
     
+}
+
+-(void) configureForPadWithModel:(NSFetchedResultsController *) fc{
+    // Creamos los controladores en sus navigation controller
+    JESALibraryViewController *lVC = [[JESALibraryViewController alloc] initWithFetchedResultsController:fc
+                                                                                                   style:UITableViewStylePlain];
+    
+    UINavigationController *lNav = [[UINavigationController alloc] initWithRootViewController:lVC];
+    
+    JESABookViewController *bVC = [[JESABookViewController alloc]
+                                   initWithModel:[fc objectAtIndexPath:[NSIndexPath indexPathForRow:0
+                                                                                          inSection:0]]];
+    UINavigationController *bNav = [[UINavigationController alloc] initWithRootViewController:bVC];
+    
+    // Creamos un combinador
+    UISplitViewController *spltVC = [[UISplitViewController alloc] init];
+    spltVC.viewControllers = @[lNav, bNav];
+    
+    // Indicamos los delegados
+    spltVC.delegate = bVC;
+    lVC.delegate = bVC;
+    
+    self.window.rootViewController = spltVC;
+
+}
+
+-(void) configureForPhoneWithModel:(NSFetchedResultsController *) fc{
+    // Creamos el controlador
+    JESALibraryViewController *lVC = [[JESALibraryViewController alloc] initWithFetchedResultsController:fc
+                                                                                                   style:UITableViewStylePlain];
+    // Creamos un combinador
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lVC];
+    
+    // Asignamos delegados
+    lVC.delegate = lVC;
+    
+    self.window.rootViewController = nav;
 }
 
 
