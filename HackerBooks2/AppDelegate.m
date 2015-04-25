@@ -65,6 +65,10 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    // Arranco el autoSave
+    [self autoSave];
+    
     return YES;
 }
 
@@ -182,6 +186,22 @@
     lVC.delegate = lVC;
     
     self.window.rootViewController = nav;
+}
+
+-(void) autoSave{
+    
+    if (AUTO_SAVE){
+        NSLog(@"Autoguardado");
+        [self.stack saveWithErrorBlock:^(NSError *error) {
+            NSLog(@"Error al autoguardar");
+        }];
+        
+        // Pongo en mi "agenda" una nueva llamada a autoSave
+        [self performSelector:@selector(autoSave)
+                   withObject:nil
+                   afterDelay:AUTO_SAVE_DELAY];
+    }
+    
 }
 
 @end

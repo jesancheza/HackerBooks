@@ -113,8 +113,6 @@
     [self.activityView startAnimating];
     
     // Intengamos leer el pdf de local
-    /*JESASandboxAndUserDefaultUtils *utilSandbox = [[JESASandboxAndUserDefaultUtils alloc] init];
-    NSData *data = [utilSandbox loadFileSandboxName:[NSString stringWithFormat:@"%@.pdf", self.model.title]];*/
     NSData *data = self.model.pdf.pdfData;
     
     if (data) {
@@ -142,9 +140,6 @@
                 
                 // Guardamos el pdf
                 self.model.pdf.pdfData = dataOnline;
-                /*[utilSandbox saveFileInSandboxName:[NSString stringWithFormat:@"%@.pdf", self.model.title]
-                                              data:dataOnline];*/
-                
             });
         });
     }
