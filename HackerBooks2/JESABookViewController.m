@@ -34,40 +34,6 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    // Toolbar
-    [self.navigationController setToolbarHidden:NO];
-    
-    //Comprobamos favoritos
-    NSString *buttonFav = @"";
-    if (self.model.isFavorite == [NSNumber numberWithBool:YES]) {
-        buttonFav = @"★";
-    }else{
-        buttonFav = @"☆";
-    }
-    
-    // Creamos botones para el toolbar
-    UIBarButtonItem *buttonFavorite = [[UIBarButtonItem alloc] initWithTitle: buttonFav
-                                                                       style: UIBarButtonItemStyleDone
-                                                                      target: self
-                                                                      action: @selector(addFavorite)];
-    
-    UIBarButtonItem *addNotification = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                                     target:self
-                                                                                     action:@selector(addNotification)];
-    
-    UIBarButtonItem *buttonReadPdf = [[UIBarButtonItem alloc] initWithTitle:@"Leer libro"
-                                                                      style:UIBarButtonItemStyleDone
-                                                                     target:self
-                                                                     action:@selector(displaySimplePDF)];
-    
-    // Botón de espacio
-    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                           target:nil
-                                                                           action:nil];
-    
-    // Añadimos botones al toolbar
-    self.toolbarItems = @[buttonFavorite, space, addNotification, space, buttonReadPdf];
-    
     // Sincronizamos modelo -> vista
     [self syncViewWithModel];
     
@@ -84,7 +50,16 @@
 }
 
 #pragma mark - Actions
-- (IBAction)displaySimplePDF {
+- (IBAction)addFavorite:(id)sender{
+    
+    
+}
+
+- (IBAction)addAnnotation:(id)sender{
+    
+}
+
+- (IBAction)readBook:(id)sender{
     // Crear un simplePDFVC
     JESASimplePdfViewController *pVC = [[JESASimplePdfViewController alloc] initWithModel:self.model];
     
@@ -92,20 +67,16 @@
     [self.navigationController pushViewController:pVC animated:YES];
 }
 
--(IBAction) addFavorite{
-    
-}
-
--(IBAction) addNotification{
-    
-}
-
 #pragma mark - Utils
 -(void) syncViewWithModel{
-    self.titleView.text = self.model.title;
-    self.photoView.image = self.model.photo.image;
-    self.authorsView.text = self.model.authors;
     
+    self.photoView.image = self.model.photo.image;
+    
+    if (self.model.isFavorite == [NSNumber numberWithBool:YES]) {
+        self.favoriteButton.title = @"★";
+    }else{
+        self.favoriteButton.title = @"☆";
+    }
 }
 
 #pragma mark - UISplitViewControllerDelegate
