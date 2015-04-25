@@ -13,6 +13,7 @@
 #import "JESAPhoto.h"
 #import "Settings.h"
 #import "JESASandboxAndUserDefaultUtils.h"
+#import "JESATag.h"
 
 @interface JESALibraryViewController ()
 
@@ -42,10 +43,26 @@
 }
 
 #pragma mark - Table view data source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    // Return the number of sections.
+    return [[JESATag alloc] countTag:self.fetchedResultsController.managedObjectContext];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    // Return the number of rows in the section.
+    return [[JESATag alloc] numberBooksForTag:section
+                                      context:self.fetchedResultsController.managedObjectContext];
+}
+
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     // Averiguar cual es la libreta
-    JESABook *b = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    JESABook *b = [[JESATag alloc] bookForTag:indexPath.section
+                                      atIndex:indexPath.row
+                                      context:self.fetchedResultsController.managedObjectContext];
+    
     
     // Crear una celda
     JESABookCellView *cell = [tableView dequeueReusableCellWithIdentifier:[JESABookCellView cellId]];
@@ -94,6 +111,12 @@
         [self.delegate libraryViewController:self
                                didSelectBook:book];
     }
+}
+
+-(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    
+    return [[JESATag alloc] nameOfTagForSection:section
+                                        context:self.fetchedResultsController.managedObjectContext];
 }
 
 #pragma mark - TableView Delegate

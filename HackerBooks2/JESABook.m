@@ -78,6 +78,34 @@
 +(instancetype) bookWithDictionary:(NSDictionary *) dic
                            context:(NSManagedObjectContext *) context{
     
+    return [[self alloc] initWithDictionary:dic
+                                    context:context];
+}
+
+#pragma mark - Init
+-(instancetype) initWithTitle:(NSString *) title
+                        photo:(JESAPhoto *) image
+                         book:(JESAPdf *) bookPdf
+                         tags:(NSSet *) tags
+                      authors:(NSString *) authors
+                   isFavorite:(NSNumber *) isFavorite
+                      context:(NSManagedObjectContext *) context{
+    
+    JESABook *b = [JESABook insertInManagedObjectContext:context];
+    
+    b.title = title;
+    b.isFavorite = isFavorite;
+    b.authors = authors;
+    b.photo = image;
+    b.pdf = bookPdf;
+    b.annotation = nil;
+    b.tag = tags;
+    
+    return b;
+}
+
+-(instancetype) initWithDictionary:(NSDictionary *) dic
+                           context:(NSManagedObjectContext *) context{
     JESABook *book = [NSEntityDescription insertNewObjectForEntityForName:[JESABook entityName]
                                                    inManagedObjectContext:context];
     
@@ -104,12 +132,12 @@
                                                               ascending:YES
                                                                selector:@selector(caseInsensitiveCompare:)]];
         
-        req.predicate = [NSPredicate predicateWithFormat:@"name = %@",tag];
+        req.predicate = [NSPredicate predicateWithFormat:@"name = %@",[self normalizeCase:tag]];
         
         NSError *error;
         NSArray *results = [context executeFetchRequest:req
                                                   error:&error];
-         
+        
         if ([results count] > 0) {
             [book addTagObject:[results lastObject]];
         }else{
@@ -122,33 +150,27 @@
     return book;
 }
 
--(instancetype) initWithTitle:(NSString *) title
-                        photo:(JESAPhoto *) image
-                         book:(JESAPdf *) bookPdf
-                         tags:(NSSet *) tags
-                      authors:(NSString *) authors
-                   isFavorite:(NSNumber *) isFavorite
-                      context:(NSManagedObjectContext *) context{
-    
-    JESABook *b = [JESABook insertInManagedObjectContext:context];
-    
-    b.title = title;
-    b.isFavorite = isFavorite;
-    b.authors = authors;
-    b.photo = image;
-    b.pdf = bookPdf;
-    b.annotation = nil;
-    b.tag = tags;
-    
-    return b;
-}
-
 #pragma mark - KVO
 -(void) observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary *)change
                        context:(void *)context{
     
+}
+
+#pragma mark - Utils
+-(NSString*) normalizeCase:(NSString*) aString{
+    
+    aString = [aString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    NSString *norm;
+    
+    if (aString.length <= 1) {
+        norm = [aString capitalizedString];
+    } else {
+        norm = [NSString stringWithFormat:@"%@%@",[[aString substringToIndex:1] uppercaseString],[[aString substringFromIndex:1]lowercaseString]];
+    }
+    return norm;
 }
 
 @end
