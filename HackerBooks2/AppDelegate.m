@@ -135,9 +135,28 @@
     
     UINavigationController *lNav = [[UINavigationController alloc] initWithRootViewController:lVC];
     
-    JESABookViewController *bVC = [[JESABookViewController alloc]
-                                   initWithModel:[fc objectAtIndexPath:[NSIndexPath indexPathForRow:0
-                                                                                          inSection:0]]];
+    JESABookViewController *bVC = nil;
+    
+    //Recuperamos el último libro seleccionado
+    JESASandboxAndUserDefaultUtils *utilsSandbox = [JESASandboxAndUserDefaultUtils new];
+    NSData *bookSelected = [utilsSandbox isUserDefaultName:LAST_SELECTED_BOOK];
+    
+    if (bookSelected) {
+        JESABook *book = [JESABook objectWithArchivedURIRepresentation:bookSelected
+                                                               context:self.stack.context];
+        if (book) {
+            bVC = [[JESABookViewController alloc] initWithModel:book];
+        }else{
+            bVC = [[JESABookViewController alloc]
+                   initWithModel:[fc objectAtIndexPath:[NSIndexPath indexPathForRow:0
+                                                                          inSection:0]]];
+        }
+    }else{
+        bVC = [[JESABookViewController alloc]
+               initWithModel:[fc objectAtIndexPath:[NSIndexPath indexPathForRow:0
+                                                                      inSection:0]]];
+    }
+    
     UINavigationController *bNav = [[UINavigationController alloc] initWithRootViewController:bVC];
     
     // Creamos un combinador
@@ -164,6 +183,5 @@
     
     self.window.rootViewController = nav;
 }
-
 
 @end

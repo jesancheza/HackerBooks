@@ -4,6 +4,9 @@
 @interface JESABook : _JESABook {}
 
 // Métodos de clase
++(instancetype) objectWithArchivedURIRepresentation:(NSData*)archivedURI
+                                            context:(NSManagedObjectContext *) context;
+
 +(instancetype) bookWithTitle:(NSString *) title
                         photo:(JESAPhoto *) image
                          book:(JESAPdf *) bookPdf

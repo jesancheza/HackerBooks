@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackerBooks2/JESABook.m"
-            timestampString = "451202996.009748"
+            timestampString = "451644386.220995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "+bookWithDictionary:context:"
             landmarkType = "5">
          </BreakpointContent>

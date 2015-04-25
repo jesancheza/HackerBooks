@@ -18,6 +18,47 @@
 }
 
 #pragma mark - Class Methods
+// Tries to recover the object from the archived URI representation (that probably
+// comes from some NSUserDefaults). If the object doesn't exist anymore, returns
+// nil.
++(instancetype) objectWithArchivedURIRepresentation:(NSData*)archivedURI
+                                            context:(NSManagedObjectContext *) context{
+    
+    NSURL *uri = [NSKeyedUnarchiver unarchiveObjectWithData:archivedURI];
+    if (uri == nil) {
+        return nil;
+    }
+    
+    
+    NSManagedObjectID *nid = [context.persistentStoreCoordinator
+                              managedObjectIDForURIRepresentation:uri];
+    if (nid == nil) {
+        return nil;
+    }
+    
+    
+    NSManagedObject *ob = [context objectWithID:nid];
+    if (ob.isFault) {
+        // Got it!
+        return (JESABook *)ob;
+    }else{
+        // Might not exist anymore. Let's fetch it!
+        NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:ob.entity.name];
+        req.predicate = [NSPredicate predicateWithFormat:@"SELF = %@", ob];
+        
+        NSError *error;
+        NSArray *res = [context executeFetchRequest:req
+                                              error:&error];
+        if (res == nil) {
+            return nil;
+        }else{
+            return [res lastObject];
+        }
+    }
+    
+    
+}
+
 +(instancetype) bookWithTitle:(NSString *) title
                         photo:(JESAPhoto *) image
                          book:(JESAPdf *) bookPdf

@@ -12,6 +12,7 @@
 #import "JESABookViewController.h"
 #import "JESAPhoto.h"
 #import "Settings.h"
+#import "JESASandboxAndUserDefaultUtils.h"
 
 @interface JESALibraryViewController ()
 
@@ -67,6 +68,14 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     JESABook *book = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    // Guardamos el último libro seleccionado
+    NSURL *uri = book.objectID.URIRepresentation;
+    NSData *bookSelected = [self archiveURIRepresentation:uri];
+    
+    JESASandboxAndUserDefaultUtils *utilSandbox = [JESASandboxAndUserDefaultUtils new];
+    
+    [utilSandbox saveInUserDefaultName:LAST_SELECTED_BOOK value:bookSelected];
     
     // mandamos una notificación
     NSDictionary *extraInfo = [NSDictionary dictionaryWithObjects:@[book]
@@ -125,6 +134,14 @@
 -(void)notifyThatImageDidChange:(NSNotification*) notification{
     
     [self.tableView reloadData];
+}
+
+#pragma mark - Utils
+// Returns an NSData with the serialized URI representation of the
+// objectID. Ready to save it in a NSUserDefaults, for example.
+-(NSData*) archiveURIRepresentation:(NSURL *) url{
+    
+    return [NSKeyedArchiver archivedDataWithRootObject:url];
 }
 
 @end
