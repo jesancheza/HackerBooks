@@ -84,7 +84,9 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    JESABook *book = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    JESABook *book = [[JESATag alloc] bookForTag:indexPath.section
+                                         atIndex:indexPath.row
+                                         context:self.fetchedResultsController.managedObjectContext];
     
     // Guardamos el último libro seleccionado
     NSURL *uri = book.objectID.URIRepresentation;
