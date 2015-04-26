@@ -24,6 +24,7 @@
     annotation.text = text;
     annotation.book = book;
     annotation.photo = [JESAPhoto insertInManagedObjectContext:context];
+    annotation.photo.image = [UIImage imageNamed:@"noimage.png"];
     annotation.creationDate = [NSDate date];
     annotation.modificationDate = [NSDate date];
 }

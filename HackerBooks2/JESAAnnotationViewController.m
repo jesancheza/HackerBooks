@@ -35,6 +35,11 @@
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    // Asignamos delegados
+    self.textView.delegate = self;
+    
+    // Alta en notificaciones de teclado
+    [self setupKeyboardNotifications];
     
     // Sincronizar el modelo -> vista
     NSDateFormatter *fmt = [NSDateFormatter new];
@@ -47,22 +52,22 @@
     self.textView.text = self.model.text;
 }
 
-#pragma mark - UITextFieldDelegate
--(BOOL) textFieldShouldReturn:(UITextField *)textField{
-    
+#pragma mark - UITextViewDelegate
+-(BOOL) textViewdShouldReturn:(UITextView *)textView{
+ 
     // Buen momento para validar el texto
-    if ([textField.text length] > 0){
-        [textField resignFirstResponder];
+    if ([textView.text length] > 0){
+        [textView resignFirstResponder];
         
         return YES;
     }
     return NO;
 }
 
--(void) textFieldDidEndEditing:(UITextField *)textField{
+-(void) textViewDidEndEditing:(UITextView *)textView{
     
     // Guardamos la nota introducida
-    self.model.text = self.textView.text;
+    self.model.text = textView.text;
 }
 
 -(void) setupKeyboardNotifications{
@@ -128,12 +133,12 @@
     // del teclado
     [UIView animateWithDuration:duration
                      animations:^{
-                         self.textView.frame = CGRectMake(8, 165, 752, 796);
+                         self.textView.frame = CGRectMake(8, 165, 304, 350);
                      }];
     
 }
 
-
+#pragma mark - Actions
 - (IBAction)showPhoto:(id)sender {
     // Crear controlador de photo
     JESAPhotoViewController *pVC = [[JESAPhotoViewController alloc] initWithModel:self.model.photo context:self.context];
@@ -141,5 +146,9 @@
     // push
     [self.navigationController pushViewController:pVC
                                          animated:YES];
+}
+
+- (IBAction)hideKeyboard:(id)sender {
+    [self.view endEditing:YES];
 }
 @end

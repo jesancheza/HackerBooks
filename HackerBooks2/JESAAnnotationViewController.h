@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class JESAAnnotation;
 
-@interface JESAAnnotationViewController : UIViewController <UITextFieldDelegate>
+@interface JESAAnnotationViewController : UIViewController <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *creationDateView;
 @property (weak, nonatomic) IBOutlet UILabel *modificationDateView;
@@ -20,6 +20,7 @@
 @property (nonatomic, strong) JESAAnnotation *model;
 
 - (IBAction)showPhoto:(id)sender;
+- (IBAction)hideKeyboard:(id)sender;
 
 -(id) initWithModel:(JESAAnnotation *)model context:(NSManagedObjectContext *) context;
 
