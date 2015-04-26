@@ -35,6 +35,10 @@
 		EDB4D1BA1ADB2C5500194F06 /* JESABookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB4D1B81ADB2C5500194F06 /* JESABookViewController.m */; };
 		EDB4D1BB1ADB2C5500194F06 /* JESABookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDB4D1B91ADB2C5500194F06 /* JESABookViewController.xib */; };
 		EDCEAF771AE464A900A4E060 /* noimage.png in Resources */ = {isa = PBXBuildFile; fileRef = EDCEAF761AE464A900A4E060 /* noimage.png */; };
+		EDDB8D9B1AED2BD000C32005 /* AGTCoreDataCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB8D9A1AED2BD000C32005 /* AGTCoreDataCollectionViewController.m */; };
+		EDDB8D9E1AED2C2F00C32005 /* JESAAnnotationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB8D9D1AED2C2F00C32005 /* JESAAnnotationsViewController.m */; };
+		EDDB8DA21AED3F5800C32005 /* JESAAnnotationCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB8DA01AED3F5800C32005 /* JESAAnnotationCellView.m */; };
+		EDDB8DA31AED3F5800C32005 /* JESAAnnotationCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDB8DA11AED3F5800C32005 /* JESAAnnotationCellView.xib */; };
 		EDDE66791AEACB61002F42D1 /* JESASimplePdfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE66771AEACB61002F42D1 /* JESASimplePdfViewController.m */; };
 		EDDE667A1AEACB61002F42D1 /* JESASimplePdfViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDE66781AEACB61002F42D1 /* JESASimplePdfViewController.xib */; };
 /* End PBXBuildFile section */
@@ -103,6 +107,13 @@
 		EDB4D1B81ADB2C5500194F06 /* JESABookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESABookViewController.m; sourceTree = "<group>"; };
 		EDB4D1B91ADB2C5500194F06 /* JESABookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JESABookViewController.xib; sourceTree = "<group>"; };
 		EDCEAF761AE464A900A4E060 /* noimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noimage.png; sourceTree = "<group>"; };
+		EDDB8D991AED2BD000C32005 /* AGTCoreDataCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataCollectionViewController.h; sourceTree = "<group>"; };
+		EDDB8D9A1AED2BD000C32005 /* AGTCoreDataCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataCollectionViewController.m; sourceTree = "<group>"; };
+		EDDB8D9C1AED2C2F00C32005 /* JESAAnnotationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESAAnnotationsViewController.h; sourceTree = "<group>"; };
+		EDDB8D9D1AED2C2F00C32005 /* JESAAnnotationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESAAnnotationsViewController.m; sourceTree = "<group>"; };
+		EDDB8D9F1AED3F5800C32005 /* JESAAnnotationCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESAAnnotationCellView.h; sourceTree = "<group>"; };
+		EDDB8DA01AED3F5800C32005 /* JESAAnnotationCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESAAnnotationCellView.m; sourceTree = "<group>"; };
+		EDDB8DA11AED3F5800C32005 /* JESAAnnotationCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JESAAnnotationCellView.xib; sourceTree = "<group>"; };
 		EDDE66761AEACB61002F42D1 /* JESASimplePdfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESASimplePdfViewController.h; sourceTree = "<group>"; };
 		EDDE66771AEACB61002F42D1 /* JESASimplePdfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESASimplePdfViewController.m; sourceTree = "<group>"; };
 		EDDE66781AEACB61002F42D1 /* JESASimplePdfViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JESASimplePdfViewController.xib; sourceTree = "<group>"; };
@@ -235,6 +246,8 @@
 		EDB4D1A01AD936D700194F06 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EDDB8D991AED2BD000C32005 /* AGTCoreDataCollectionViewController.h */,
+				EDDB8D9A1AED2BD000C32005 /* AGTCoreDataCollectionViewController.m */,
 				EDB4D1A11AD9370500194F06 /* AGTCoreDataTableViewController.h */,
 				EDB4D1A21AD9370500194F06 /* AGTCoreDataTableViewController.m */,
 				EDB4D1A41ADB19DF00194F06 /* JESALibraryViewController.h */,
@@ -245,6 +258,8 @@
 				EDDE66761AEACB61002F42D1 /* JESASimplePdfViewController.h */,
 				EDDE66771AEACB61002F42D1 /* JESASimplePdfViewController.m */,
 				EDDE66781AEACB61002F42D1 /* JESASimplePdfViewController.xib */,
+				EDDB8D9C1AED2C2F00C32005 /* JESAAnnotationsViewController.h */,
+				EDDB8D9D1AED2C2F00C32005 /* JESAAnnotationsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -264,6 +279,9 @@
 				EDB4D1B21ADB277E00194F06 /* JESABookCellView.h */,
 				EDB4D1B31ADB277E00194F06 /* JESABookCellView.m */,
 				EDB4D1B41ADB277E00194F06 /* JESABookCellView.xib */,
+				EDDB8D9F1AED3F5800C32005 /* JESAAnnotationCellView.h */,
+				EDDB8DA01AED3F5800C32005 /* JESAAnnotationCellView.m */,
+				EDDB8DA11AED3F5800C32005 /* JESAAnnotationCellView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -360,6 +378,7 @@
 				EDCEAF771AE464A900A4E060 /* noimage.png in Resources */,
 				EDB4D1BB1ADB2C5500194F06 /* JESABookViewController.xib in Resources */,
 				EDB4D1561AD9300F00194F06 /* LaunchScreen.xib in Resources */,
+				EDDB8DA31AED3F5800C32005 /* JESAAnnotationCellView.xib in Resources */,
 				EDB4D1B61ADB277E00194F06 /* JESABookCellView.xib in Resources */,
 				EDB4D1531AD9300F00194F06 /* Images.xcassets in Resources */,
 			);
@@ -381,11 +400,14 @@
 			files = (
 				EDB4D1BA1ADB2C5500194F06 /* JESABookViewController.m in Sources */,
 				EDB4D1511AD9300F00194F06 /* AppDelegate.m in Sources */,
+				EDDB8D9B1AED2BD000C32005 /* AGTCoreDataCollectionViewController.m in Sources */,
 				EDB4D1A61ADB19DF00194F06 /* JESALibraryViewController.m in Sources */,
+				EDDB8DA21AED3F5800C32005 /* JESAAnnotationCellView.m in Sources */,
 				EDB4D1B51ADB277E00194F06 /* JESABookCellView.m in Sources */,
 				EDB4D1741AD931A200194F06 /* JESAModelBaseClass.m in Sources */,
 				EDB4D1891AD9327B00194F06 /* _JESAPhoto.m in Sources */,
 				EDB4D18A1AD9327B00194F06 /* _JESATag.m in Sources */,
+				EDDB8D9E1AED2C2F00C32005 /* JESAAnnotationsViewController.m in Sources */,
 				EDB4D19A1AD9329200194F06 /* JESABook.m in Sources */,
 				EDB4D1A31AD9370500194F06 /* AGTCoreDataTableViewController.m in Sources */,
 				EDB4D1881AD9327B00194F06 /* _JESAPdf.m in Sources */,

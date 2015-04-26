@@ -149,16 +149,18 @@
         JESABook *book = [JESABook objectWithArchivedURIRepresentation:bookSelected
                                                                context:self.stack.context];
         if (book) {
-            bVC = [[JESABookViewController alloc] initWithModel:book];
+            bVC = [[JESABookViewController alloc] initWithModel:book context:self.stack.context];
         }else{
             bVC = [[JESABookViewController alloc]
                    initWithModel:[fc objectAtIndexPath:[NSIndexPath indexPathForRow:0
-                                                                          inSection:0]]];
+                                                                          inSection:0]]
+                   context:self.stack.context];
         }
     }else{
         bVC = [[JESABookViewController alloc]
                initWithModel:[fc objectAtIndexPath:[NSIndexPath indexPathForRow:0
-                                                                      inSection:0]]];
+                                                                      inSection:0]]
+               context:self.stack.context];
     }
     
     UINavigationController *bNav = [[UINavigationController alloc] initWithRootViewController:bVC];

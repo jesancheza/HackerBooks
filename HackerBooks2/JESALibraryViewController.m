@@ -130,7 +130,8 @@
 -(void) libraryViewController:(JESALibraryViewController *) uVC
                 didSelectBook:(JESABook *) book{
     // Creamos un bookVC
-    JESABookViewController *bookVC = [[JESABookViewController alloc] initWithModel:book];
+    JESABookViewController *bookVC = [[JESABookViewController alloc] initWithModel:book
+                                                                           context:self.fetchedResultsController.managedObjectContext];
     
     // Hago un push
     [self.navigationController pushViewController:bookVC

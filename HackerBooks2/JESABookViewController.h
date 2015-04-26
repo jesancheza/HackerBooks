@@ -16,8 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *favoriteButton;
 
 @property(nonatomic,strong) JESABook *model;
+@property(nonatomic,strong) NSManagedObjectContext *context;
 
--(id) initWithModel:(JESABook *) model;
+-(id) initWithModel:(JESABook *) model context:(NSManagedObjectContext *) context;
 
 - (IBAction)addFavorite:(id)sender;
 - (IBAction)addAnnotation:(id)sender;
