@@ -1,5 +1,6 @@
 #import "JESAAnnotation.h"
 #import "JESABook.h"
+#import "JESAPhoto.h"
 
 @interface JESAAnnotation ()
 
@@ -22,6 +23,7 @@
     
     annotation.text = text;
     annotation.book = book;
+    annotation.photo = [JESAPhoto insertInManagedObjectContext:context];
     annotation.creationDate = [NSDate date];
     annotation.modificationDate = [NSDate date];
 }

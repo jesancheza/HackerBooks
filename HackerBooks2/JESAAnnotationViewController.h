@@ -16,7 +16,10 @@
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomBar;
 
+@property(nonatomic,strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) JESAAnnotation *model;
+
+- (IBAction)showPhoto:(id)sender;
 
 -(id) initWithModel:(JESAAnnotation *)model context:(NSManagedObjectContext *) context;
 

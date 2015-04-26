@@ -8,6 +8,8 @@
 
 #import "JESAAnnotationViewController.h"
 #import "JESAAnnotation.h"
+#import "JESAPhotoViewController.h"
+#import "JESAPhoto.h"
 
 @interface JESAAnnotationViewController ()
 
@@ -22,6 +24,7 @@
     if (self = [super initWithNibName:nil
                                bundle:nil]){
         _model = model;
+        _context = context;
         self.title = @"Annotation";
     }
     
@@ -58,7 +61,8 @@
 
 -(void) textFieldDidEndEditing:(UITextField *)textField{
     
-    // Es buen momento para guardar el texto
+    // Guardamos la nota introducida
+    self.model.text = self.textView.text;
 }
 
 -(void) setupKeyboardNotifications{
@@ -124,10 +128,18 @@
     // del teclado
     [UIView animateWithDuration:duration
                      animations:^{
-                         self.textView.frame = CGRectMake(8, 166, 304, 350);
+                         self.textView.frame = CGRectMake(8, 165, 752, 796);
                      }];
     
 }
 
 
+- (IBAction)showPhoto:(id)sender {
+    // Crear controlador de photo
+    JESAPhotoViewController *pVC = [[JESAPhotoViewController alloc] initWithModel:self.model.photo context:self.context];
+    
+    // push
+    [self.navigationController pushViewController:pVC
+                                         animated:YES];
+}
 @end
