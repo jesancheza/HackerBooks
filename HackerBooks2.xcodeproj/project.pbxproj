@@ -39,6 +39,8 @@
 		EDDB8D9E1AED2C2F00C32005 /* JESAAnnotationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB8D9D1AED2C2F00C32005 /* JESAAnnotationsViewController.m */; };
 		EDDB8DA21AED3F5800C32005 /* JESAAnnotationCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB8DA01AED3F5800C32005 /* JESAAnnotationCellView.m */; };
 		EDDB8DA31AED3F5800C32005 /* JESAAnnotationCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDB8DA11AED3F5800C32005 /* JESAAnnotationCellView.xib */; };
+		EDDB8DA71AED4E1D00C32005 /* JESAAnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDB8DA51AED4E1D00C32005 /* JESAAnnotationViewController.m */; };
+		EDDB8DA81AED4E1D00C32005 /* JESAAnnotationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDB8DA61AED4E1D00C32005 /* JESAAnnotationViewController.xib */; };
 		EDDE66791AEACB61002F42D1 /* JESASimplePdfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE66771AEACB61002F42D1 /* JESASimplePdfViewController.m */; };
 		EDDE667A1AEACB61002F42D1 /* JESASimplePdfViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDE66781AEACB61002F42D1 /* JESASimplePdfViewController.xib */; };
 /* End PBXBuildFile section */
@@ -114,6 +116,9 @@
 		EDDB8D9F1AED3F5800C32005 /* JESAAnnotationCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESAAnnotationCellView.h; sourceTree = "<group>"; };
 		EDDB8DA01AED3F5800C32005 /* JESAAnnotationCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESAAnnotationCellView.m; sourceTree = "<group>"; };
 		EDDB8DA11AED3F5800C32005 /* JESAAnnotationCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JESAAnnotationCellView.xib; sourceTree = "<group>"; };
+		EDDB8DA41AED4E1D00C32005 /* JESAAnnotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESAAnnotationViewController.h; sourceTree = "<group>"; };
+		EDDB8DA51AED4E1D00C32005 /* JESAAnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESAAnnotationViewController.m; sourceTree = "<group>"; };
+		EDDB8DA61AED4E1D00C32005 /* JESAAnnotationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JESAAnnotationViewController.xib; sourceTree = "<group>"; };
 		EDDE66761AEACB61002F42D1 /* JESASimplePdfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESASimplePdfViewController.h; sourceTree = "<group>"; };
 		EDDE66771AEACB61002F42D1 /* JESASimplePdfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESASimplePdfViewController.m; sourceTree = "<group>"; };
 		EDDE66781AEACB61002F42D1 /* JESASimplePdfViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JESASimplePdfViewController.xib; sourceTree = "<group>"; };
@@ -260,6 +265,9 @@
 				EDDE66781AEACB61002F42D1 /* JESASimplePdfViewController.xib */,
 				EDDB8D9C1AED2C2F00C32005 /* JESAAnnotationsViewController.h */,
 				EDDB8D9D1AED2C2F00C32005 /* JESAAnnotationsViewController.m */,
+				EDDB8DA41AED4E1D00C32005 /* JESAAnnotationViewController.h */,
+				EDDB8DA51AED4E1D00C32005 /* JESAAnnotationViewController.m */,
+				EDDB8DA61AED4E1D00C32005 /* JESAAnnotationViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -378,6 +386,7 @@
 				EDCEAF771AE464A900A4E060 /* noimage.png in Resources */,
 				EDB4D1BB1ADB2C5500194F06 /* JESABookViewController.xib in Resources */,
 				EDB4D1561AD9300F00194F06 /* LaunchScreen.xib in Resources */,
+				EDDB8DA81AED4E1D00C32005 /* JESAAnnotationViewController.xib in Resources */,
 				EDDB8DA31AED3F5800C32005 /* JESAAnnotationCellView.xib in Resources */,
 				EDB4D1B61ADB277E00194F06 /* JESABookCellView.xib in Resources */,
 				EDB4D1531AD9300F00194F06 /* Images.xcassets in Resources */,
@@ -424,6 +433,7 @@
 				EDB4D19F1AD9329200194F06 /* JESATag.m in Sources */,
 				EDB4D1A91ADB246100194F06 /* JESASandboxAndUserDefaultUtils.m in Sources */,
 				EDB4D1851AD9327B00194F06 /* _JESABook.m in Sources */,
+				EDDB8DA71AED4E1D00C32005 /* JESAAnnotationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

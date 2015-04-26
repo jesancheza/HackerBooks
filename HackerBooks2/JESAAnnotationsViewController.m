@@ -10,6 +10,7 @@
 #import "JESAAnnotation.h"
 #import "JESABook.h"
 #import "JESAAnnotationCellView.h"
+#import "JESAAnnotationViewController.h"
 
 static NSString *cellId = @"AnnotationCellId";
 
@@ -21,13 +22,14 @@ static NSString *cellId = @"AnnotationCellId";
 
 #pragma mark - Init
 -(id) initWithFechedResultsController:(NSFetchedResultsController *) aFetchedResultsController
-                                 book:(JESABook *)book{
+                                 book:(JESABook *) book
+                               layout:(UICollectionViewFlowLayout *) layout{
     
-    /*if (self = [super initWithFetchedResultsController:aFetchedResultsController layout:(UICollectionViewLayout *)]){
+    if (self = [super initWithFetchedResultsController:aFetchedResultsController layout:layout]){
         
         _book = book;
-        
-    }*/
+        self.title = book.title;
+    }
     return self;
 }
 
@@ -45,9 +47,9 @@ static NSString *cellId = @"AnnotationCellId";
 
 -(void) addNewAnnotation:(id) sender{
     
-    [JESAAnnotation annotationWithName:@"Nueva Anotación"
+    [JESAAnnotation annotationWithName:@"Pruebas"
                                   book:self.book
-                               context:self.book.managedObjectContext];
+                               context:self.fetchedResultsController.managedObjectContext];
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -89,6 +91,22 @@ static NSString *cellId = @"AnnotationCellId";
     
     //Devolverla
     return cell;
+    
+}
+
+#pragma mark - Delegate
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+ 
+    // Obtener el objeto
+    JESAAnnotation *annotation = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    // Crear controlador
+    JESAAnnotationViewController *vC = [[JESAAnnotationViewController alloc] initWithModel:annotation
+                                                                                   context: self.fetchedResultsController.managedObjectContext];
+    
+    // Hacer un push
+    [self.navigationController pushViewController:vC
+                                         animated:YES];
     
 }
 

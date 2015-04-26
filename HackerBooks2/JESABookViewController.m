@@ -67,24 +67,9 @@
 
 - (IBAction)addAnnotation:(id)sender{
     
-    // Datos de pruebas
-    [JESAAnnotation annotationWithName:@"Pruebas"
-                                  book:self.model
-                               context:self.context];
-    
-    [JESAAnnotation annotationWithName:@"Anotacion de pruebas"
-                                  book:self.model
-                               context:self.context];
-    
-    [JESAAnnotation annotationWithName:@"Siguiente anotación"
-                                  book:self.model
-                               context:self.context];
-    
     // Crear el fechRequest
     NSFetchRequest * req = [NSFetchRequest fetchRequestWithEntityName:[JESAAnnotation entityName]];
-    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:JESAAnnotationAttributes.text
-                                                          ascending:YES],
-                            [NSSortDescriptor sortDescriptorWithKey:JESAAnnotationAttributes.modificationDate
+    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:JESAAnnotationAttributes.modificationDate
                                                           ascending:NO],
                             [NSSortDescriptor sortDescriptorWithKey:JESAAnnotationAttributes.creationDate
                                                           ascending:NO]];
@@ -107,7 +92,10 @@
     layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
     
     // Creamos el controlador de anotaciones
-    JESAAnnotationsViewController *annotationVC = [JESAAnnotationsViewController coreDataCollectionViewControllerWithFetchedResultsController:fC layout:layout];
+    JESAAnnotationsViewController *annotationVC = [[JESAAnnotationsViewController alloc]
+                                                   initWithFechedResultsController:fC
+                                                   book:self.model
+                                                   layout:layout];
     
     // lo pusheamos
     [self.navigationController pushViewController:annotationVC

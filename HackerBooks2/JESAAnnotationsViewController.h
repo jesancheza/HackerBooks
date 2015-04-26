@@ -12,6 +12,7 @@
 @interface JESAAnnotationsViewController : AGTCoreDataCollectionViewController
 
 -(id) initWithFechedResultsController:(NSFetchedResultsController *) aFetchedResultsController
-                                 book:(JESABook *) book;
+                                 book:(JESABook *) book
+                               layout:(UICollectionViewFlowLayout *) layout;
 
 @end
