@@ -3,6 +3,7 @@
 #import "JESAAnnotation.h"
 #import "JESAPhoto.h"
 #import "JESATag.h"
+#import "Settings.h"
 
 @interface JESABook ()
 
@@ -14,7 +15,7 @@
 
 +(NSArray *) observableKeys{
     // Observo las propiedades de las relaciones
-    return @[JESABookRelationships.photo, JESABookRelationships.annotation, JESABookRelationships.pdf, JESABookRelationships.tag];
+    return @[JESABookAttributes.isFavorite,JESABookRelationships.photo, JESABookRelationships.annotation, JESABookRelationships.pdf, JESABookRelationships.tag];
 }
 
 #pragma mark - Class Methods
@@ -126,28 +127,27 @@
     NSArray *listaTags = [[dic objectForKey:@"tags"] componentsSeparatedByString:@","];
     for (NSString *tag in listaTags) {
         
-        // Compruebo si el tag existe
-        NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[JESATag entityName]];
-        req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:JESATagAttributes.name
-                                                              ascending:YES
-                                                               selector:@selector(caseInsensitiveCompare:)]];
-        
-        req.predicate = [NSPredicate predicateWithFormat:@"name = %@",[self normalizeCase:tag]];
-        
-        NSError *error;
-        NSArray *results = [context executeFetchRequest:req
-                                                  error:&error];
-        
-        if ([results count] > 0) {
-            [book addTagObject:[results lastObject]];
-        }else{
-            [book addTagObject:[JESATag tagWithName:tag
-                                            context:context]];
-        }
+        // Añadimos el tag
+        [self addTagToBook:book
+                       tag:tag
+                   context:context];
         
     }
     
     return book;
+}
+
+#pragma mark -  Notification
+-(void)notifyChangeInFavorite{
+    
+    // Enviamos una notificación
+    NSNotification *notification =
+    [NSNotification notificationWithName: FAVORITE_DID_CHANGE_NOTIFICATION
+                                  object:self
+                                userInfo:nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+    
 }
 
 #pragma mark - KVO
@@ -155,6 +155,32 @@
                       ofObject:(id)object
                         change:(NSDictionary *)change
                        context:(void *)context{
+    
+    if ([keyPath isEqualToString:@"isFavorite"]) {
+        if ([[change valueForKey:@"new"] intValue] == 1) {
+            [self addTagToBook:object
+                           tag:@"Favorite"
+                       context:self.managedObjectContext];
+        }else{
+            // Compruebo si el tag existe
+            NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[JESATag entityName]];
+            req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:JESATagAttributes.name
+                                                                  ascending:YES
+                                                                   selector:@selector(caseInsensitiveCompare:)]];
+            
+            req.predicate = [NSPredicate predicateWithFormat:@"name = %@",[self normalizeCase:@"Favorite"]];
+            
+            NSError *error;
+            NSArray *results = [self.managedObjectContext executeFetchRequest:req
+                                                                        error:&error];
+            
+            // Elimino la relación
+            [self removeTagObject:[results lastObject]];
+        }
+        
+        
+        [self notifyChangeInFavorite];
+    }
     
 }
 
@@ -171,6 +197,30 @@
         norm = [NSString stringWithFormat:@"%@%@",[[aString substringToIndex:1] uppercaseString],[[aString substringFromIndex:1]lowercaseString]];
     }
     return norm;
+}
+
+-(void) addTagToBook:(JESABook *) book
+                 tag:(NSString *) tag
+             context:(NSManagedObjectContext *) context{
+    
+    // Compruebo si el tag existe
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[JESATag entityName]];
+    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:JESATagAttributes.name
+                                                          ascending:YES
+                                                           selector:@selector(caseInsensitiveCompare:)]];
+    
+    req.predicate = [NSPredicate predicateWithFormat:@"name = %@",[self normalizeCase:tag]];
+    
+    NSError *error;
+    NSArray *results = [context executeFetchRequest:req
+                                              error:&error];
+    
+    if ([results count] > 0) {
+        [book addTagObject:[results lastObject]];
+    }else{
+        [book addTagObject:[JESATag tagWithName:tag
+                                        context:context]];
+    }
 }
 
 @end

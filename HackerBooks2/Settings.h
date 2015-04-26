@@ -16,3 +16,5 @@
 #define BOOK_KEY @"bookKey"
 
 #define LAST_SELECTED_BOOK @"lastBook"
+
+#define FAVORITE_DID_CHANGE_NOTIFICATION @"favoriteDidChangeNotification"

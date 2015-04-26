@@ -147,6 +147,11 @@
                name:IMAGE_DID_CHANGE_NOTIFICATION
              object:nil];
     
+    [nc addObserver:self
+           selector:@selector(notifyThatFavoriteDidChange:)
+               name:FAVORITE_DID_CHANGE_NOTIFICATION
+             object:nil];
+    
 }
 
 -(void) tearDownNotifications{
@@ -157,6 +162,12 @@
 
 //IMAGE_DID_CHANGE_NOTIFICATION
 -(void)notifyThatImageDidChange:(NSNotification*) notification{
+    
+    [self.tableView reloadData];
+}
+
+//FAVORITE_DID_CHANGE_NOTIFICATION
+-(void)notifyThatFavoriteDidChange:(NSNotification*) notification{
     
     [self.tableView reloadData];
 }

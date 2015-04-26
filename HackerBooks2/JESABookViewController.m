@@ -52,7 +52,13 @@
 #pragma mark - Actions
 - (IBAction)addFavorite:(id)sender{
     
-    
+    if ([self.model.isFavorite intValue] == 1) {
+        self.favoriteButton.title = @"☆";
+        self.model.isFavorite = [NSNumber numberWithBool:NO];
+    }else{
+        self.favoriteButton.title = @"★";
+        self.model.isFavorite = [NSNumber numberWithBool:YES];
+    }
 }
 
 - (IBAction)addAnnotation:(id)sender{
@@ -72,7 +78,7 @@
     
     self.photoView.image = self.model.photo.image;
     
-    if (self.model.isFavorite == [NSNumber numberWithBool:YES]) {
+    if ([self.model.isFavorite intValue] == 1) {
         self.favoriteButton.title = @"★";
     }else{
         self.favoriteButton.title = @"☆";

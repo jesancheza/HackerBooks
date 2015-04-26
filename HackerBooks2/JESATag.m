@@ -9,6 +9,11 @@
 
 @implementation JESATag
 
++(NSArray *) observableKeys{
+    // Observo las propiedades de las relaciones
+    return @[JESATagRelationships.book];
+}
+
 #pragma mark - Class Methods
 +(instancetype) tagWithName:(NSString *) name
                     context:(NSManagedObjectContext *) context{
@@ -27,6 +32,10 @@
     tag.name = [self normalizeCase:name];
     
     return tag;
+}
+
+-(NSString*) normalizedName{
+    return self.name;
 }
 
 #pragma mark - Utils
@@ -56,8 +65,12 @@
                              selector:@selector(caseInsensitiveCompare:)]];
     
     NSError *error;
-    NSArray *res = [context executeFetchRequest:req
-                                          error:&error];
+    NSMutableArray *res = [[context executeFetchRequest:req
+                                                  error:&error] mutableCopy];
+    
+    // Ordenamos los tag manteniendo primero los favoritos
+    res = [[res sortedArrayUsingSelector:@selector(compare:)] mutableCopy];
+    
     if (res == nil) {
         return @"";
     }else{
@@ -79,6 +92,10 @@
     NSError *error;
     NSArray *res = [context executeFetchRequest:req
                                           error:&error];
+    
+    // Ordenamos los tag manteniendo primero los favoritos
+    res = [[res sortedArrayUsingSelector:@selector(compare:)] mutableCopy];
+    
     if (res == nil) {
         return 0;
     }else{
@@ -103,6 +120,10 @@
     NSError *error;
     NSArray *res = [context executeFetchRequest:req
                                           error:&error];
+    
+    // Ordenamos los tag manteniendo primero los favoritos
+    res = [[res sortedArrayUsingSelector:@selector(compare:)] mutableCopy];
+    
     if (res == nil) {
         return nil;
     }else{
@@ -132,6 +153,31 @@
         norm = [NSString stringWithFormat:@"%@%@",[[aString substringToIndex:1] uppercaseString],[[aString substringFromIndex:1]lowercaseString]];
     }
     return norm;
+}
+
+#pragma mark - Comparison
+- (NSComparisonResult)compare:(JESATag *)other{
+    
+    /* favorite always comes first */
+    static NSString *fav = @"Favorite";
+    
+    if ([[self normalizedName] isEqualToString:[other normalizedName]]) {
+        return NSOrderedSame;
+    }else if ([[self normalizedName] isEqualToString:fav]){
+        return NSOrderedAscending;
+    }else if ([[other normalizedName] isEqualToString:fav]){
+        return NSOrderedDescending;
+    }else{
+        return [self.name compare:other.normalizedName];
+    }
+}
+
+#pragma mark - KVO
+-(void) observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context{
+    
 }
 
 @end
